@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.466" height="11" viewBox="0 0 12.466 11">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:red;fill-rule:evenodd}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h12.465v11H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Heart" class="cls-2">
+        <path id="Heart-2" d="M11.494 1.021a3.349 3.349 0 0 0-4.767 0l-.469.469-.469-.469a3.371 3.371 0 0 0-4.768 4.768l5.236 5.236 5.236-5.236a3.349 3.349 0 0 0 0-4.767" class="cls-3" data-name="Heart" transform="translate(-.025 -.025)"/>
+    </g>
+</svg>

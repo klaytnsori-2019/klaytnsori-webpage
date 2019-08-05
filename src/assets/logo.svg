@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="173" height="59" viewBox="0 0 173 59">
+    <defs>
+        <style>
+            .cls-1{fill:#575757;font-size:40px;font-family:JCfg,PilGi}.cls-2{fill:#b1b1b1;font-size:12px;font-family:NanumGothicBold,Nanum Gothic}
+        </style>
+    </defs>
+    <g id="로고" transform="translate(-494 -27)">
+        <text id="Klaytnsori" class="cls-1" transform="translate(494 78)">
+            <tspan x="0" y="0">Klaytnsori</tspan>
+        </text>
+        <text id="지식재산_공유_플랫폼" class="cls-2" data-name="지식재산 공유 플랫폼" transform="translate(494 38)">
+            <tspan x="0" y="0">지식재산 공유 플랫폼</tspan>
+        </text>
+    </g>
+</svg>

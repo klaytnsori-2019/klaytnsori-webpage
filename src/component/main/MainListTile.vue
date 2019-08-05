@@ -1,0 +1,53 @@
+<template>
+    <router-link :to="'/question_detail/' + index">
+        <div class="main_list_tile">
+            <div class="title">{{title}}</div>
+            <div class="reward">보상 : {{reward}} klay</div>
+        </div>
+    </router-link>
+</template>
+
+<script>
+    export default {
+        name: "MainListTile",
+        props: [
+            "title",
+            "reward",
+            "index"
+        ]
+    }
+</script>
+
+<style scoped>
+    .main_list_tile {
+        margin: 10px auto;
+        width: 861px;
+        height: 58px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .title {
+        display: inline-block;
+        font-family: NanumGothic;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+        color: #717171;
+        margin-left: 23px;
+        line-height: 58px;
+    }
+
+    .reward {
+        font-family: NanumGothic;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1.17;
+        text-align: right;
+        color: #5d5d5d;
+        margin-top: 29px;
+        margin-right: 31px;
+    }
+</style>
