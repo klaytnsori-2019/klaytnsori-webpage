@@ -39,9 +39,7 @@
      * 공통으로 적용할 style이 있다면 scoped를 빼던지, App.vue에 작성합니다.  */
     .content_area {
         background: white;
-        display: table;
-        width: 100%;
+        width: 1000px;
         height: -webkit-fill-available;
-        text-align: center;
     }
 </style>
