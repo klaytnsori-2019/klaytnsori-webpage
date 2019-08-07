@@ -24,10 +24,17 @@ export default {
 <style>
   #app {
     position: relative;
+    min-height: 100%;
   }
 
   #page_area {
+    min-height: 100%;
     padding-bottom:82px;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
   }
 
   body {
