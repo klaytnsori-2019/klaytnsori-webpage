@@ -1,0 +1,149 @@
+<template>
+  <div id="main_page" class="page">
+    <Header></Header>
+    <div class="contents_area">
+      <div id="search_area">
+        <form id="search_form">
+          <span class="icon"><img src="./../assets/search.svg"></span>
+          <input placeholder="검색어를 입력하세요">
+        </form>
+      </div>
+        <div id="question_area">
+          <div class="title_area">
+          <span>질문 리스트</span>
+        </div>
+          <div class="categ_latest">
+            <span>분류&emsp;</span>
+            <span>최신순</span>
+          </div>
+        <ul>
+          <li v-for="item in question_item">
+            <list-tile :title="item.title" :brief="item.brief" :reward="item.reward" :date="item.date" :id="item.id"></list-tile>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+  import Header from './../component/common/Header'
+  import ListTile from './../component/main/QuestionListTile'
+
+  export default {
+    name: "QuestionList",
+    components: {
+      Header,
+      ListTile
+    },
+    data: () => {
+      return {
+        question_item: question_item
+      }
+    }
+  }
+  let question_item = [
+    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+      id:"doyun0916@naver.com",
+      date:"2019-08-08 14:28",
+      reward: 10},
+    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+      id:"doyun0916@naver.com",
+      date:"2019-08-08 14:28",
+      reward: 20},
+    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+      id:"doyun0916@naver.com",
+      date:"2019-08-08 14:28",
+      reward: 100},
+    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+      id:"doyun0916@naver.com",
+      date:"2019-08-08 14:28",
+      reward: 40},
+    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+      id:"doyun0916@naver.com",
+      date:"2019-08-08 14:28",
+      reward: 20},
+    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+      id:"doyun0916@naver.com",
+      date:"2019-08-08 14:28",
+      reward: 50}
+  ];
+</script>
+
+<style scoped>
+
+  .contents_area {
+    margin: auto;
+    width: 1000px;
+    text-align: center;
+  }
+
+  #search_area {
+    position: relative;
+    display: inline-block;
+    height: 58px;
+    margin-top: 58px;
+  }
+
+  #search_form {
+    position: relative;
+  }
+
+  #search_area .icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: #4f5b66;
+  }
+
+  #search_area input {
+    width: 436px;
+    height: 54px;
+    background: #d1d1d1;
+    border: solid 1px #a5a5a5;
+    font-family: NanumGothic;
+    font-size: 15px;
+    float: left;
+    color: black;
+    padding-left: 59px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  .title_area {
+    text-align: left;
+    margin-left: 65px;
+    margin-top: 52px;
+  }
+  .categ_latest{
+    width: auto;
+    height: auto;
+    font-family: NanumGothic;
+    font-size: 12px;
+    font-weight: 800;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: right;
+    color: #656565;
+    margin-right: 50px;
+  }
+</style>
