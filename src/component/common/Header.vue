@@ -104,7 +104,7 @@
         vertical-align: bottom;
     }
 
-    .sub_menu a div {
+    .sub_menu div {
         height: 40px;
         line-height: 40px;
         text-align: center;

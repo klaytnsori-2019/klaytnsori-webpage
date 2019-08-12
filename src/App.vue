@@ -9,10 +9,13 @@
 
 <script>
 import Footer from "./component/common/Footer";
+import SamplePage from "./page/SamplePage";
+import MainPage from "./page/MainPage";
+
 
 export default {
   name: 'app',
-  components: {Footer},
+  components: {MainPage, Footer,SamplePage},
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
