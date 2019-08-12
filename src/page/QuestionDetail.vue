@@ -30,8 +30,8 @@
 <script>
 
   import Header from './../component/common/Header'
-  import ListTile from '../component/main/QuestionDetailQTile'
-  import AnswerTile from '../component/main/QuestionDetailATile'
+  import ListTile from '../component/question_detail/QuestionDetailQTile'
+  import AnswerTile from '../component/question_detail/QuestionDetailATile'
 
   export default {
     name: "QuestionDetail",
