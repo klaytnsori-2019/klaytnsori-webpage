@@ -13,9 +13,9 @@
                     <span class="value">999999.9999</span>
                 </div>
                 <div class="sub_menu">
-                    <router-link to="my_page"><div>마이페이지</div></router-link>
+                    <router-link to="my_page"><div class="sub_btn">마이페이지</div></router-link>
                     <div class="line"></div>
-                    <div>로그아웃</div>
+                    <div class="sub_btn">로그아웃</div>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@
         vertical-align: bottom;
     }
 
-    .sub_menu a div {
+    .sub_menu div.sub_btn {
         height: 40px;
         line-height: 40px;
         text-align: center;
