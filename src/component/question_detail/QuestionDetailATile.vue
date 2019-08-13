@@ -1,9 +1,11 @@
 <template>
-    <div class="answer_list_tile">
-      <span class="id">{{id}}</span>
-      <div class="detail">{{detail}}</div>
-      <div class="like">{{like}}</div>
-    </div>
+  <div class="answer_list_tile">
+    <span class="id">{{id}}<span class="heart"><img src=./../../assets/heart.svg><span class="like">{{like}}</span>
+      </span>
+        </span>
+    <div class="detail">{{detail}}</div>
+
+  </div>
 </template>
 
 <script>
@@ -31,6 +33,7 @@
   }
 
   .detail{
+    display:block;
     width: 800px;
     height: 48px;
     font-family: NanumGothic;
@@ -43,11 +46,11 @@
     white-space:pre;
   }
 
-  .like{
+  .like {
     width: 10px;
     height: 9px;
     font-family: NanumGothic;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -55,9 +58,15 @@
     letter-spacing: normal;
     text-align: left;
     color: #ff0000;
-    margin-top: 17px;
-    margin-left: 210px;
-    position:absolute;
+    margin-left: 5px;
+  }
+
+
+  .heart{
+    text-align:left;
+    margin-right: 0px;
+    margin-left:40px;
+    object-fit: contain;
 
   }
   .id{
