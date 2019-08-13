@@ -1,17 +1,20 @@
 <template>
     <div class="answer_list_tile">
-      <div class="id">{{id}}</div>
+      <span class="id">{{id}}</span>
       <div class="detail">{{detail}}</div>
+      <div class="like">{{like}}</div>
     </div>
 </template>
 
 <script>
+
   export default {
     name: "QuestionDetailATile",
     props: [
       "detail",
       "index",
-      "id"
+      "id",
+      "like"
     ]
   }
 </script>
@@ -40,6 +43,23 @@
     white-space:pre;
   }
 
+  .like{
+    width: 10px;
+    height: 9px;
+    font-family: NanumGothic;
+    font-size: 10px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.13;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ff0000;
+    margin-top: 17px;
+    margin-left: 210px;
+    position:absolute;
+
+  }
   .id{
     width: 95px;
     height: 14px;
