@@ -12,7 +12,7 @@
           <div class="title_area">
           <span>질문 리스트</span>
         </div>
-          <div class="categ_latest">
+          <div class="cate_latest">
             <span>분류&emsp;</span>
             <span>최신순</span>
           </div>
@@ -132,7 +132,7 @@
     margin-left: 65px;
     margin-top: 52px;
   }
-  .categ_latest{
+  .cate_latest{
     width: auto;
     height: auto;
     font-family: NanumGothic;
@@ -145,5 +145,6 @@
     text-align: right;
     color: #656565;
     margin-right: 50px;
+
   }
 </style>
