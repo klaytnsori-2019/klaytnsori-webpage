@@ -4,7 +4,9 @@
       </span>
         </span>
     <div class="detail">{{detail}}</div>
-
+    <div class="like_block">
+      <span class="heart_white"><img src=./../../assets/heart_white.svg></span>
+    </div>
   </div>
 </template>
 
@@ -61,7 +63,6 @@
     margin-left: 5px;
   }
 
-
   .heart{
     text-align:left;
     margin-right: 0px;
@@ -69,6 +70,25 @@
     object-fit: contain;
 
   }
+
+  .like_block{
+    margin: auto;
+    width: 120px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: gainsboro;
+    display: inline-block;
+  }
+
+  .heart_white{
+    text-align:center;
+    margin-top:65px;
+    width: 23px;
+    height: 21px;
+    object-fit: contain;
+    display: inline-block;
+  }
+
   .id{
     width: 95px;
     height: 14px;
