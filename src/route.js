@@ -6,6 +6,7 @@ import LoginPage from './page/LoginPage.vue'
 import MainPage from './page/MainPage.vue'
 import QuestionDetail from './page/QuestionDetail.vue'
 import QuestionDetail_like from './page/QuestionDetail_like.vue'
+import QuestionDetail_questioner from './page/QuestionDetail_questioner.vue'
 // 컴포넌트를 import하고, router에 경로를 등록합니다.
 // SamplePage는 localhost:3000/sample 등으로 접속 가능합니다.
 import SamplePage from './page/SamplePage.vue'
@@ -20,7 +21,8 @@ const router = new VueRouter({
         { path: '/sample', component: SamplePage},
         { path: '/question_list', component: QuestionList},
         { path: '/detail', component:QuestionDetail},
-        { path: '/detail_like', component:QuestionDetail_like}
+        { path: '/detail_like', component:QuestionDetail_like},
+        { path: '/detail_q', component:QuestionDetail_questioner}
         ]
 });
 
