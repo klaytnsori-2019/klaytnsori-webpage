@@ -9,10 +9,11 @@ import QuestionPage from "./page/QuestionPage";
 import MyKlay from "./page/MyKlay";
 import MyAnswer from "./page/MyAnswer";
 import MyQuestion from "./page/MyQuestion";
+import QuestionDetail_like from './page/QuestionDetail_like.vue'
+import QuestionDetail_questioner from './page/QuestionDetail_questioner.vue'
 // 컴포넌트를 import하고, router에 경로를 등록합니다.
 // SamplePage는 localhost:3000/sample 등으로 접속 가능합니다.
 import SamplePage from './page/SamplePage.vue'
-import MyPage from "./page/MyPage";
 
 Vue.use(VueRouter);
 
@@ -28,7 +29,9 @@ const router = new VueRouter({
       {path: '/question', component:QuestionPage},
       {path:'/myklay', component:MyKlay},
       {path:'/myquestion', component:MyQuestion},
-      {path:'/myanswer', component:MyAnswer}
+      {path:'/myanswer', component:MyAnswer},
+        { path: '/detail_like', component:QuestionDetail_like},
+        { path: '/detail_q', component:QuestionDetail_questioner}
         ]
 });
 
