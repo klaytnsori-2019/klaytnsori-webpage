@@ -8,7 +8,7 @@
             <br>
             <a id="find_password">비밀번호 찾기</a>
             <br>
-            <a id="sign_up">회원가입</a>
+            <router-link to="sign_up"><span>회원가입</span></router-link>
         </div>
     </div>
 </template>
@@ -20,7 +20,6 @@
             login: function () {
                 const email = document.getElementById('email_input').value;
                 const password = document.getElementById('password_input').value;
-
                 this.$router.push('/main');
             }
         }
@@ -79,4 +78,11 @@
         margin-bottom: 45px;
         display: inline-block;
     }
+
+    a:visited {
+      color: black;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
 </style>
