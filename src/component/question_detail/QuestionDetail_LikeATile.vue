@@ -1,9 +1,11 @@
 <template>
   <div class="answer_list_tile">
-    <span class="id">{{id}}</span>
+    <span class="id">{{id}}<span class="heart"><img src=./../../assets/heart.svg><span class="like">{{like}}</span>
+      </span>
+        </span>
     <div class="detail">{{detail}}</div>
     <div class="like_block">
-      <span class="choose">채택</span>
+      <span class="heart_white"><img src=./../../assets/heart_white.svg></span>
     </div>
   </div>
 </template>
@@ -11,12 +13,12 @@
 <script>
 
   export default {
-    name: "QuestionDetailQuerTile",
+    name: "QuestionDetail_LikeATile",
     props: [
       "detail",
       "index",
       "id",
-      "select"
+      "like"
     ]
   }
 </script>
@@ -46,27 +48,45 @@
     white-space:pre;
   }
 
-  .like_block{
-    margin: auto;
-    width: 120px;
-    height: 150px;
-    border-radius: 10px;
-    background-color: #4695d9;
-    display: inline-block;
-  }
-
-  .choose{
-    display: inline-block;
+  .like {
+    width: 10px;
+    height: 9px;
     font-family: NanumGothic;
-    font-size: 15px;
+    font-size: 11px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.13;
     letter-spacing: normal;
     text-align: left;
+    color: #ff0000;
+    margin-left: 5px;
+  }
+
+  .heart{
+    text-align:left;
+    margin-right: 0px;
+    margin-left:40px;
+    object-fit: contain;
+
+  }
+
+  .like_block{
+    margin: auto;
+    width: 120px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: gainsboro;
+    display: inline-block;
+  }
+
+  .heart_white{
+    text-align:center;
     margin-top:65px;
-    color: #ffffff;
+    width: 23px;
+    height: 21px;
+    object-fit: contain;
+    display: inline-block;
   }
 
   .id{
@@ -83,4 +103,3 @@
     white-space:pre;
   }
 </style>
-

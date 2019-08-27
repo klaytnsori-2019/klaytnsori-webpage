@@ -30,7 +30,7 @@
 
   import Header from './../component/common/Header'
   import ListTile from '../component/question_detail/QuestionDetailQTile'
-  import AnswerTile from '../component/question_detail/QuestionDetailATile'
+  import AnswerTile from '../component/question_detail/QuestionDetail_LikeATile'
 
   export default {
     name: "QuestionDetail_like",
