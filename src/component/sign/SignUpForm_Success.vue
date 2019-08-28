@@ -2,27 +2,33 @@
   <div id="login_form">
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
+      <div class="message">
+        가입이 완료되었습니다.
+        <br>
+        다시 로그인하세요
+      </div>
       <input id='email_input' placeholder="email">
       <input id='password_input' placeholder="password" type="password">
-      <input id='password_confirm' placeholder="password confirm" type="password">
-      <input id='nickname' placeholder="nickname">
-      <button id="login_button" @click="sign_up">회원가입</button>
+      <button id="login_button" @click="login">로그인</button>
+      <br>
+      <a id="find_password">비밀번호 찾기</a>
+      <br>
+      <router-link to="sign_up"><span>회원가입</span></router-link>
     </div>
   </div>
 </template>
 
 <script>
-    export default {
-      name: "SignUpForm",
-      methods: {
-        sign_up: function () {
-          const email = document.getElementById('email_input').value;
-          const password = document.getElementById('password_input').value;
-          const nickname = document.getElementById('nickname').value;
-          this.$router.push('/sign_up_suc');
-        }
+  export default {
+    name: "SignUpForm_Success",
+    methods: {
+      login: function () {
+        const email = document.getElementById('email_input').value;
+        const password = document.getElementById('password_input').value;
+        this.$router.push('/main');
       }
     }
+  }
 </script>
 
 <style scoped>
@@ -33,7 +39,7 @@
 
   .form_wrapper {
     width: 582px;
-    height: 650px;
+    height: 617px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
     text-align: center;
@@ -73,4 +79,28 @@
     color: #ffffff;
   }
 
+  #find_password {
+    margin-bottom: 45px;
+    display: inline-block;
+  }
+
+  a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+   .message {
+     font-family: AppleSDGothicNeo;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: center;
+    color: #b1b1b1;
+    margin-top: -35px;
+   }
 </style>
+
