@@ -1,17 +1,18 @@
+
 <template>
   <div id="login_page">
     <div class="content_area">
-      <sign-Up-form/>
+      <SignUpForm/>
     </div>
   </div>
 </template>
 
 <script>
-  import signUpForm from './../component/sign/SignUpForm.vue'
+  import SignUpForm from './../component/sign/SignUpForm_Success.vue'
 
   export default {
-    name: "SignUp",
-    components: { signUpForm }
+    name: "SignUpForm_Success",
+    components: { SignUpForm }
   }
 </script>
 
