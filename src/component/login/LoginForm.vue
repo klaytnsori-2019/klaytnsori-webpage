@@ -6,9 +6,10 @@
             <input id='password_input' placeholder="password" type="password">
             <button id="login_button" @click="login">로그인</button>
             <br>
-            <a id="find_password">비밀번호 찾기</a>
-            <br>
-            <router-link to="sign_up"><span>회원가입</span></router-link>
+            <div id="find_password"><router-link to="find_pass"><span>비밀번호찾기</span></router-link>
+            </div>
+            <div><router-link to="sign_up"><span>회원가입</span></router-link>
+            </div>
         </div>
     </div>
 </template>
