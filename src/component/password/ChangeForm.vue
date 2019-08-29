@@ -3,9 +3,14 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <div class="message">
-        가입하신 이메일을 입력하세요
+        asdfghj@naver.com님
+        <br>
+        새로운 비밀번호를 입력하세요
+        <br>
+        <br>
       </div>
-      <input id='email_input' placeholder="email">
+      <input id='password_input' placeholder="password" type="password">
+      <input id='password_confirm' placeholder="password confirm" type="password">
       <button id="login_button" @click="login">로그인</button>
     </div>
   </div>
@@ -13,11 +18,11 @@
 
 <script>
   export default {
-    name: "FindForm",
+    name: "ChangeForm",
     methods: {
       login: function () {
-        const email = document.getElementById('email_input').value;
-        this.$router.push('/change_pass');
+        const email = document.getElementById('password_input').value;
+        this.$router.push('/main');
       }
     }
   }
@@ -52,8 +57,7 @@
     background-color: #e6e6e6;
     font-size: 20px;
     padding: 0 24px;
-    margin-bottom: 25px;
-    margin-top: 100px;
+    margin-bottom: 20px;
   }
 
   #login_button {
@@ -85,5 +89,3 @@
     margin-top: -35px;
   }
 </style>
-
-
