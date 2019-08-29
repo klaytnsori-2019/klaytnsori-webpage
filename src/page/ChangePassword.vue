@@ -1,17 +1,17 @@
 <template>
   <div id="login_page">
     <div class="content_area">
-      <Sign-Up-form/>
+      <ChangeForm/>
     </div>
   </div>
 </template>
 
 <script>
-  import SignUpForm from './../component/sign/SignUpForm.vue'
+  import ChangeForm from './../component/password/ChangeForm.vue'
 
   export default {
-    name: "SignUp",
-    components: { SignUpForm }
+    name: "ChangePassword",
+    components: { ChangeForm }
   }
 </script>
 
@@ -24,3 +24,4 @@
     text-align: center;
   }
 </style>
+
