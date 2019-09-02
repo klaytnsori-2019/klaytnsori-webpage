@@ -15,7 +15,7 @@
                 <div class="sub_menu">
                     <router-link to="my_page"><div class="sub_btn">마이페이지</div></router-link>
                     <div class="line"></div>
-                    <div class="sub_btn">로그아웃</div>
+                  <router-link to="login"><div class="sub_btn">로그아웃</div></router-link>
                 </div>
             </div>
         </div>
