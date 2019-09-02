@@ -15,13 +15,22 @@
 </template>
 
 <script>
+    import apiClient from './../../js/ApiClient.js';
+
     export default {
         name: "login_form",
         methods: {
             login: function () {
                 const email = document.getElementById('email_input').value;
                 const password = document.getElementById('password_input').value;
-                this.$router.push('/main');
+                apiClient.login(email, password, function(result, data) {
+                    if(result) {
+                      this.$router.push('/main');
+                      console.log(data.sessionId);
+                    } else {
+                      alert(data);
+                    }
+                });
             }
         }
     }
