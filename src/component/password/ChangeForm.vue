@@ -11,7 +11,7 @@
       </div>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
-      <router-link to="login"><button id="login_button" @click="login">다음</button></router-link>
+      <button id="login_button" @click="login">다음</button>
     </div>
   </div>
 </template>
@@ -21,8 +21,14 @@
     name: "ChangeForm",
     methods: {
       login: function () {
-        const email = document.getElementById('password_input').value;
-        this.$router.push('/main')
+        const password = document.getElementById('password_input').value;
+        const passwordconf = document.getElementById('password_confirm').value;
+        if (password != passwordconf || !password) {
+          alert('비밀번호를 다시 확인해주세요');
+        }
+        else {
+          this.$router.push('/login')
+        }
       }
     }
   }

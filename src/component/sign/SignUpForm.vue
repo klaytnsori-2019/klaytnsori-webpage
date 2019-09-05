@@ -6,6 +6,7 @@
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
       <input id='nickname' placeholder="nickname">
+      <p id="demo"></p>
       <button id="login_button" @click="sign_up">회원가입</button>
     </div>
   </div>
@@ -18,8 +19,13 @@
         sign_up: function () {
           const email = document.getElementById('email_input').value;
           const password = document.getElementById('password_input').value;
+          const passwordconf = document.getElementById('password_confirm').value;
           const nickname = document.getElementById('nickname').value;
-          this.$router.push('/sign_up_suc');
+          if (password != passwordconf || !password) {
+            alert('비밀번호를 다시 확인해주세요');
+          } else {
+            this.$router.push('/sign_up_suc');
+          }
         }
       }
     }
