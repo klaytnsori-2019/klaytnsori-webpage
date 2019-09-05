@@ -12,12 +12,12 @@
               <div>
                 <select v-model="selected" class="category">
                   <option disabled value="대분류">분류를 선택하세요</option>
-                  <option>A</option>
-                  <option>B</option>
-                  <option>C</option>
+                  <option>분류1</option>
+                  <option>분류2</option>
+                  <option>분류3</option>
                 </select>
               </div>
-              <div>
+              <div id="klay_input">
                 <ul>
                   <li>
                     <a><input id="question_klay" placeholder="보상"></a>
@@ -31,10 +31,10 @@
             <div>
               <ul>
                 <li>
-                  <router-link to="#" tag="button" id="reg" class="btn">등록</router-link>
+                  <router-link to="/#" tag="button" id="reg" class="btn">등록</router-link>
                 </li>
                 <li>
-                  <router-link to="#" tag="button" id="cancel" class="btn">취소</router-link>
+                  <router-link to="/main" tag="button" id="cancel" class="btn">취소</router-link>
                 </li>
               </ul>
             </div>
@@ -64,15 +64,24 @@
         /*position: relative;*/
         text-align: center;
         width:1000px;
+
     }
 
     /* 새질문 등록 */
     #title_name {
-      margin-top: 20px;
-      margin-right: 380px;
-      font-family: "Nanum Gothic";
+      /*width: 105px;*/
+      /*height: 23px;*/
+      font-family: NanumGothic;
       font-size: 20px;
-      color: black;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.15;
+      letter-spacing: normal;
+      /*text-align: left;*/
+      color: #656565;
+      margin-right: 385px;
+      padding-top: 50px;
     }
 
     /* 제목 입력 칸*/
@@ -88,7 +97,7 @@
       font-size: 10px;
       /*float: left;*/
       color: black;
-      padding-left: 20px;
+      padding-left: 10px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
@@ -104,7 +113,7 @@
       background: white;
       border: solid 1px #a5a5a5;
       font-family: NanumGothic;
-      font-size: 15px;
+      font-size: 10px;
       /*float: left;*/
       color: black;
       padding-left: 59px;
@@ -116,6 +125,7 @@
     /* 클레이 입력 칸*/
     a input {
       /*position: absolute;*/
+      display: inline-block;
       margin-right: 380px;
       width: 30px;
       height: 32px;
@@ -125,7 +135,7 @@
       font-size: 10px;
       /*float: left;*/
       color: black;
-      padding-left: 20px;
+      padding-left: 0px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
@@ -190,10 +200,14 @@
       font-size: 10px;
       /*float: left;*/
       color: black;
-      padding-left: 20px;
+      padding-left: 10px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
+    }
+
+    #klay_input{
+      margin-right: 230px;
     }
 
 </style>

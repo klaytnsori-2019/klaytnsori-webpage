@@ -13,7 +13,7 @@
                     <span class="value">999999.9999</span>
                 </div>
                 <div class="sub_menu">
-                    <router-link to="my_page"><div class="sub_btn">마이페이지</div></router-link>
+                    <router-link to="mypage"><div class="sub_btn">마이페이지</div></router-link>
                     <div class="line"></div>
                     <div class="sub_btn">로그아웃</div>
                 </div>
