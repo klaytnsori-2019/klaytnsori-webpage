@@ -6,7 +6,7 @@
         가입하신 이메일을 입력하세요
       </div>
       <input id='email_input' placeholder="email">
-      <button id="login_button" @click="login">로그인</button>
+      <button id="login_button" @click="login">다음</button>
     </div>
   </div>
 </template>
@@ -20,6 +20,7 @@
         this.$router.push('/change_pass');
       }
     }
+
   }
 </script>
 

@@ -3,7 +3,7 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <div class="message">
-        asdfghj@naver.com님
+        asdf1234@naver.com님
         <br>
         새로운 비밀번호를 입력하세요
         <br>
@@ -11,7 +11,7 @@
       </div>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
-      <button id="login_button" @click="login">로그인</button>
+      <router-link to="login"><button id="login_button" @click="login">다음</button></router-link>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@
     methods: {
       login: function () {
         const email = document.getElementById('password_input').value;
-        this.$router.push('/main');
+        this.$router.push('/main')
       }
     }
   }
