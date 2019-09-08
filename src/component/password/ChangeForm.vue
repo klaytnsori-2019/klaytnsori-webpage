@@ -3,7 +3,7 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <div class="message">
-        asdf1234@naver.com님
+        <span>{{this.$store.state.storeInput}}님</span>
         <br>
         새로운 비밀번호를 입력하세요
         <br>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
   export default {
     name: "ChangeForm",
     methods: {
@@ -25,8 +26,7 @@
         const passwordconf = document.getElementById('password_confirm').value;
         if (password != passwordconf || !password) {
           alert('비밀번호를 다시 확인해주세요');
-        }
-        else {
+        } else {
           this.$router.push('/login')
         }
       }

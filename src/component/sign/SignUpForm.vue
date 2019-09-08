@@ -6,7 +6,6 @@
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
       <input id='nickname' placeholder="nickname">
-      <p id="demo"></p>
       <button id="login_button" @click="sign_up">회원가입</button>
     </div>
   </div>

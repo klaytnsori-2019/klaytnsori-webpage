@@ -5,8 +5,8 @@
       <div class="message">
         가입하신 이메일을 입력하세요
       </div>
-      <input id='email_input' placeholder="email">
-      <button id="login_button" @click="login">다음</button>
+      <input id="email_input" type="text" v-model="txtInput" placeholder="email">
+      <button id="login_button" @click="next">다음</button>
     </div>
   </div>
 </template>
@@ -14,13 +14,18 @@
 <script>
   export default {
     name: "FindForm",
-    methods: {
-      login: function () {
-        const email = document.getElementById('email_input').value;
+    data(){
+      return{
+        txtInput: null
+      }
+    },
+  methods: {
+      next: function () {
+        this.$store.commit('transferString', this.txtInput);
+        const email = document.getElementById("email_input").value;
         this.$router.push('/change_pass');
       }
     }
-
   }
 </script>
 

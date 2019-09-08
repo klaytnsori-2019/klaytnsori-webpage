@@ -30,9 +30,11 @@
 </template>
 
 <script>
-    export default {
-        name: "Header"
-    }
+  import apiClient from './../../js/ApiClient.js';
+
+  export default {
+    name: "Header"
+  }
 </script>
 
 <style scoped>

@@ -16,8 +16,8 @@ function call(api, data, callback) {
 }
 
 export default {
-  categ:function(callback) {
-  call("question/category", {}, callback)
+  cate:function(callback) {
+  call("question/category", null, callback)
   },
   insert_question:function(sessionId, questionTitle, klay, questionContent, category, callback) {
   call("question/insert_question",
