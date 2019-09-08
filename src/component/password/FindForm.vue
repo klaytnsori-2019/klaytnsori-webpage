@@ -14,16 +14,20 @@
 <script>
   export default {
     name: "FindForm",
-    data(){
-      return{
+    data() {
+      return {
         txtInput: null
       }
     },
-  methods: {
+    methods: {
       next: function () {
         this.$store.commit('transferString', this.txtInput);
         const email = document.getElementById("email_input").value;
-        this.$router.push('/change_pass');
+        if (!email) {
+          alert('이메일을 다시 확인해주세요');
+        } else {
+          this.$router.push('/change_pass');
+        }
       }
     }
   }

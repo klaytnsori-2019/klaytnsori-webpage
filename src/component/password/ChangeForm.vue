@@ -23,8 +23,8 @@
     methods: {
       login: function () {
         const password = document.getElementById('password_input').value;
-        const passwordconf = document.getElementById('password_confirm').value;
-        if (password != passwordconf || !password) {
+        const password_check= document.getElementById('password_confirm').value;
+        if (password !==  password_check || !password) {
           alert('비밀번호를 다시 확인해주세요');
         } else {
           this.$router.push('/login')
