@@ -16,22 +16,22 @@ function call(api, data, callback) {
 }
 
 export default {
-  account:function(sessionId, callback) {
-    call("membership/",{sessionId: sessionId}, callback)
+  account:function(session_id, callback) {
+    call("membership/",{session_id: session_id}, callback)
   },
-  transaction:function(sessionId, callback) {
-    call("my_page/transaction",{sessionId: sessionId}, callback)
+  transaction:function(session_id, callback) {
+    call("my_page/transaction",{session_id: session_id}, callback)
   },
-  my_question_list:function(sessionId, callback) {
-    call("my_page/my_question_list",{sessionId: sessionId}, callback)
+  my_question_list:function(session_id, callback) {
+    call("my_page/my_question_list",{session_id: session_id}, callback)
   },
-  my_answer_list:function(sessionId, callback) {
-    call("my_page/my_answer_list",{sessionId: sessionId}, callback)
+  my_answer_list:function(session_id, callback) {
+    call("my_page/my_answer_list",{session_id: session_id}, callback)
   },
-  my_like_list:function(sessionId, callback) {
-    call("my_page/my_like_list",{sessionId: sessionId}, callback)
+  my_like_list:function(session_id, callback) {
+    call("my_page/my_like_list",{session_id: session_id}, callback)
   },
-  my_remain_klay:function(sessionId, callback) {
-    call("membership/my_remain_klay",{sessionId: sessionId}, callback)
+  my_remain_klay:function(session_id, callback) {
+    call("membership/my_remain_klay",{session_id: session_id}, callback)
   }
 }

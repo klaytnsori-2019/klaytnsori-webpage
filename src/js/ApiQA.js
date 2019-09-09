@@ -16,36 +16,36 @@ function call(api, data, callback) {
 }
 
 export default {
-  cate:function(callback) {
+  category:function(callback) {
   call("question/category", null, callback)
   },
-  insert_question:function(sessionId, questionTitle, klay, questionContent, category, callback) {
+  insert_question:function(session_id, question_title, klay, question_content, category, callback) {
   call("question/insert_question",
-    {sessionId: sessionId, questionTitle: questionTitle, klay: klay,
-      questionContent: questionContent, category:category}, callback)
+    {session_id: session_id, question_title: question_title, klay: klay,
+      question_content: question_content, category:category}, callback)
   },
-  show_question:function(questionId, callback) {
-  call("question/show_question",{questionId: questionId}, callback)
+  show_question:function(question_id, callback) {
+  call("question/show_question",{question_id: question_id}, callback)
   },
-  question_list:function(category, sortNum, keyword, questionState, selectEnable, callback) {
+  question_list:function(category, sort_num, keyword, question_state, select_enable, callback) {
     call("question/question_list",
       {
         category: category,
-        sortNum: sortNum,
+        sort_num: sort_num,
         keyword: keyword,
-        questionState: questionState,
-        selectEnable: selectEnable
+        question_state: question_state,
+        select_enable: select_enable
       }, callback)
   },
-  insert_answer:function(questionId, sessionId, answerContent, callback) {
+  insert_answer:function(question_id, session_id, answer_content, callback) {
     call("question/insert_answer",
-      {questionId: questionId, sessionId: sessionId, answerContent: answerContent}, callback)
+      {question_id: question_id, session_id: session_id, answer_content: answer_content}, callback)
   },
-  insert_like:function(sessionId, questionNum, answerNum, callback) {
-  call("question/insert_like",{sessionId: sessionId, questionNum: questionNum, answerNum: answerNum}, callback)
+  insert_like:function(session_id, question_num, answer_num, callback) {
+  call("question/insert_like",{session_id: session_id, question_num: question_num, answer_num: answer_num}, callback)
  },
-  select_answer:function(sessionId, questionNum, answerNum, selectEnable, callback) {
+  select_answer:function(session_id, question_num, answer_num, select_enable, callback) {
   call("question/select_answer",
-    {sessionId: sessionId, questionNum: questionNum, answerNum: answerNum, selectEnable: selectEnable}, callback)
+    {session_id: session_id, question_num: question_num, answer_num: answer_num, select_enable: select_enable}, callback)
  }
 }

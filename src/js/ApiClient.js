@@ -19,8 +19,8 @@ export default {
   login: function(email, password, callback) {
     call("membership/login", {email: email, password: password}, callback);
   },
-  logout: function(sessionId, callback) {
-    call("membership/logout", {sessionId: sessionId}, callback);
+  logout: function(session_id, callback) {
+    call("membership/logout", {session_id: session_id}, callback);
   },
   signup: function(email, password, nickname, callback) {
     call( "membership/signup", {email: email, password: password, nickname: nickname}, callback)
@@ -31,14 +31,14 @@ export default {
   find_pw_auth_identity:function(email, authorize_text, callback) {
     call("membership/find_pw_auth_identity", {email: email, authorize_text}, callback)
   },
-  modify_pw:function(sessionId, password, callback) {
-    call("membership/modify_pw", {sessionId: sessionId, password: password}, callback)
+  modify_pw:function(session_id, password, callback) {
+    call("membership/modify_pw", {session_id: session_id, password: password}, callback)
   },
   authorize_code:function(email, password, nickname, callback) {
     call("membership/authorize_code",{email: email, password: password, nickname: nickname}, callback)
   },
-  authorize_identity:function(email, password, nickname, authorizeText, callback) {
+  authorize_identity:function(email, password, nickname, authorize_text, callback) {
     call("membership/authorize_identity",
-      {email: email, password: password, nickname: nickname, authorize_text: authorizeText}, callback)
+      {email: email, password: password, nickname: nickname, authorize_text: authorize_text}, callback)
   }
 };

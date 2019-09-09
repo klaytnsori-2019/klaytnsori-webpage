@@ -26,7 +26,8 @@
                 apiClient.login(email, password, function(result, data) {
                     if(result) {
                       this.$router.push('/main');
-                      console.log(data.sessionId);
+                      console.log(data.session_id);
+                      this.$store.commit('transferString', data.session_id);
                     } else {
                       alert(data);
                     }
