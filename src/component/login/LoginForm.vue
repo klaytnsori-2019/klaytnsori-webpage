@@ -23,11 +23,14 @@
             login: function () {
                 const email = document.getElementById('email_input').value;
                 const password = document.getElementById('password_input').value;
-                apiClient.login(email, password, function(result, data) {
-                    if(result) {
-                      this.$router.push('/main');
+              var vueObj = this;
+                apiClient.login(email, password,function(result, data) {
+
+                  if(result) {
+                      vueObj.$router.push('/main');
+                      vueObj.$store.state.storeInput = data.session_id;
                       console.log(data.session_id);
-                      this.$store.commit('transferString', data.session_id);
+
                     } else {
                       alert(data);
                     }

@@ -17,7 +17,7 @@ import SamplePage from './page/SamplePage.vue'
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({
+ const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/login', component: LoginPage },
