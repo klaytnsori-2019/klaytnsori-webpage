@@ -30,7 +30,6 @@
 
   import Header from './../component/common/Header'
   import ListTile from '../component/question_list/QuestionListTile'
-  import apiQA from './../js/ApiQA.js';
 
   export default {
     name: "QuestionList",

@@ -22,7 +22,7 @@
                 <div class="sub_menu">
                     <router-link to="my_page"><div class="sub_btn">마이페이지</div></router-link>
                     <div class="line"></div>
-                  <router-link to="" @click="logout"><div class="sub_btn">로그아웃</div></router-link>
+                  <router-link to="" ><div class="sub_btn" @click="logout">로그아웃</div></router-link>
                 </div>
             </div>
         </div>
@@ -41,13 +41,13 @@
         var vueObj = this;
         apiClient.logout(session_id, function (result, data) {
           if (result) {
+            vueObj.$store.state.storeInput = null;
             vueObj.$router.push('/login');
           }
           else {
             alert(data);
           }
         });
-        this.$store.state.storeInput = null;
       }
     }
   }

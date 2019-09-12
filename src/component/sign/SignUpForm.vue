@@ -3,6 +3,7 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <input id='email_input' placeholder="email">
+      <span id="check"><br>중복체크</span>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
       <input id='nickname' placeholder="nickname">
@@ -78,4 +79,22 @@
     color: #ffffff;
   }
 
+  #check{
+    display: inline-block;
+    width: 70px;
+    height: 53px;
+    border-radius: 5px;
+    border: solid 1px #afafaf;
+    background-color: #e6e6e6;
+    font-size: 13px;
+    padding-top: 0px;
+    text-align:center;
+    margin-left: 342px;
+    margin-bottom: 0px;
+    margin-top: -81px;
+    z-index: 1;
+    position: absolute;
+
+
+  }
 </style>
