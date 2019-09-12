@@ -22,8 +22,8 @@ export default {
   logout: function(session_id, callback) {
     call("membership/logout", {session_id: session_id}, callback);
   },
-  signup: function(email, password, nickname, callback) {
-    call( "membership/signup", {email: email, password: password, nickname: nickname}, callback)
+  signup: function(email, callback) {
+    call( "membership/signup", {email: email}, callback)
   },
   find_pw_auth_code: function(email, callback) {
     call("membership/find_pw_auth_code", {email: email}, callback)

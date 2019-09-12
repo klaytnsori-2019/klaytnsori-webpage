@@ -3,20 +3,34 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <input id='email_input' placeholder="email">
-      <span id="check"><br>중복체크</span>
+      <router-link to="" ><span id="check" @click="check"><br>중복체크</span></router-link>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
       <input id='nickname' placeholder="nickname">
-      <button id="login_button" @click="sign_up">회원가입</button>
+      <button id="login_button" @click="authorize_code">회원가입</button>
     </div>
   </div>
 </template>
 
 <script>
-    export default {
+  import apiClient from './../../js/ApiClient.js';
+
+  export default {
       name: "SignUpForm",
       methods: {
-        sign_up: function () {
+        check: function () {
+          const email = document.getElementById('email_input').value;
+          var vueObj = this;
+          apiClient.signup( email, function (result, data) {
+              if (result) {
+                alert("이 Email은 사용가능합니다!")
+              }
+              else {
+                alert("다른 Email을 사용해 주십시오")
+              }
+          })
+        },
+        authorize_code: function () {
           const email = document.getElementById('email_input').value;
           const password = document.getElementById('password_input').value;
           const passwordconf = document.getElementById('password_confirm').value;
@@ -26,7 +40,7 @@
           } else {
             this.$router.push('/sign_up_suc');
           }
-        }
+        },
       }
     }
 </script>
@@ -85,7 +99,7 @@
     height: 53px;
     border-radius: 5px;
     border: solid 1px #afafaf;
-    background-color: #e6e6e6;
+    background-color: lightgrey;
     font-size: 13px;
     padding-top: 0px;
     text-align:center;
@@ -94,7 +108,10 @@
     margin-top: -81px;
     z-index: 1;
     position: absolute;
-
-
+  }
+  :visited{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
   }
 </style>
