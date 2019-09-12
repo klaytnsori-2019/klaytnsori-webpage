@@ -2,12 +2,8 @@
   <div id="login_form">
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
-      <input id='email_input' placeholder="email">
-      <router-link to="" ><span id="check" @click="check_email"><br>중복체크</span></router-link>
-      <input id='password_input' placeholder="password" type="password">
-      <input id='password_confirm' placeholder="password confirm" type="password">
-      <input id='nickname' placeholder="nickname">
-      <button id="login_button" @click="check_pass">다음</button>
+      <input id='code' placeholder="code">
+      <button id="login_button" @click="authorize_identity">회원가입</button>
     </div>
   </div>
 </template>
@@ -16,39 +12,22 @@
   import apiClient from './../../js/ApiClient.js';
 
   export default {
-      name: "SignUpForm",
-      methods: {
-        check_email: function () {
-          const email = document.getElementById('email_input').value;
+    name: "SignUpForm2",
+    methods: {
+        authorize_identity: function (){
+          const email = this.$store.state.storeInput;
+          const code = document.getElementById('code').value;
           var vueObj = this;
-          apiClient.signup( email, function (result, data) {
-              if (result) {
-                alert("이 Email은 사용가능합니다!")
-              }
-              else {
-                alert("다른 Email을 사용해 주십시오")
-              }
-          })
-        },
-        check_pass: function () {
-          const email = document.getElementById('email_input').value;
-          const nickname = document.getElementById('nickname').value;
-          const password = document.getElementById('password_input').value;
-          const passwordconf = document.getElementById('password_confirm').value;
-          if (password != passwordconf || !password) {
-            alert('비밀번호를 다시 확인해주세요');
-          }
-          var vueObj = this;
-          apiClient.authorize_code(email, password, nickname, function (result, data) {
+          apiClient.authorize_identity(email, code , function (result, data) {
             if (result) {
-              vueObj.$store.state.storeInput = email;
-              vueObj.$router.push('/sign_up2');
+              vueObj.$store.state.storeInput = null;
+              vueObj.$router.push('/sign_up_suc');
             } else {
               alert(data);
             }
           })
         }
-      }
+    }
   }
 </script>
 
@@ -118,12 +97,6 @@
   }
   :visited{
     color: black;
-    background-color: transparent;
-    text-decoration: none;
-  }
-
-  .router-link :visited{
-    color: white;
     background-color: transparent;
     text-decoration: none;
   }

@@ -8,6 +8,7 @@ import QuestionDetail from './page/QuestionDetail.vue'
 import QuestionDetail_like from './page/QuestionDetail_like.vue'
 import QuestionDetail_questioner from './page/QuestionDetail_questioner.vue'
 import SignUp from './page/SignUp.vue'
+import SignUp2 from './page/SignUp2.vue'
 import SignUp_Success from './page/SignUp_Success.vue'
 import FindPassword from './page/FindPassword.vue'
 import ChangePassword from './page/ChangePassword.vue'
@@ -30,7 +31,8 @@ Vue.use(VueRouter);
         { path: '/sign_up', component:SignUp},
         { path: '/sign_up_suc', component:SignUp_Success},
         { path: '/find_pass', component:FindPassword},
-        { path: '/change_pass', component:ChangePassword}
+        { path: '/change_pass', component:ChangePassword},
+        { path: '/sign_up2', component:SignUp2}
         ]
 });
 

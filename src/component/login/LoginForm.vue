@@ -27,9 +27,9 @@
                 apiClient.login(email, password,function(result, data) {
 
                   if(result) {
-                      vueObj.$router.push('/main');
-                      vueObj.$store.state.storeInput = data.session_id;
-                      console.log(data.session_id);
+                    vueObj.$store.state.storeInput = data.session_id;
+                    vueObj.$router.push('/main');
+                    console.log(data.session_id);
 
                     } else {
                       alert(data);
