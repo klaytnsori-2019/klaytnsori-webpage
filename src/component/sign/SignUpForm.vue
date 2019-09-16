@@ -7,7 +7,7 @@
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
       <input id='nickname' placeholder="nickname">
-      <button id="login_button" @click="check_pass">다음</button>
+      <button id="login_button" @click="signup">다음</button>
     </div>
   </div>
 </template>
@@ -20,33 +20,33 @@
       methods: {
         check_email: function () {
           const email = document.getElementById('email_input').value;
-          var vueObj = this;
-          apiClient.signup( email, function (result, data) {
+          apiClient.check_email( email, function (result, data) {
               if (result) {
-                alert("이 Email은 사용가능합니다!")
+                alert("이 Email은 사용가능합니다!");
               }
               else {
-                alert("다른 Email을 사용해 주십시오")
+                alert("이 Email은 사용중입니다!");
               }
           })
         },
-        check_pass: function () {
+        signup: function () {
           const email = document.getElementById('email_input').value;
           const nickname = document.getElementById('nickname').value;
           const password = document.getElementById('password_input').value;
           const passwordconf = document.getElementById('password_confirm').value;
+          var vueObj = this;
           if (password != passwordconf || !password) {
             alert('비밀번호를 다시 확인해주세요');
+          } else {
+            apiClient.signup(email, password, nickname, function (result, data) {
+              if (result) {
+                vueObj.$store.state.storeInput = email;
+                vueObj.$router.push('/sign_up2');
+              } else {
+                alert(data);
+              }
+            })
           }
-          var vueObj = this;
-          apiClient.authorize_code(email, password, nickname, function (result, data) {
-            if (result) {
-              vueObj.$store.state.storeInput = email;
-              vueObj.$router.push('/sign_up2');
-            } else {
-              alert(data);
-            }
-          })
         }
       }
   }
