@@ -3,7 +3,7 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <div class="message">
-        asdfghj@naver.com님
+        <span>{{this.$store.state.storeInput}}님</span>
         <br>
         새로운 비밀번호를 입력하세요
         <br>
@@ -11,7 +11,7 @@
       </div>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
-      <button id="login_button" @click="login">로그인</button>
+      <button id="login_button" @click="login">다음</button>
     </div>
   </div>
 </template>
@@ -21,8 +21,13 @@
     name: "ChangeForm",
     methods: {
       login: function () {
-        const email = document.getElementById('password_input').value;
-        this.$router.push('/main');
+        const password = document.getElementById('password_input').value;
+        const password_check= document.getElementById('password_confirm').value;
+        if (password !==  password_check || !password) {
+          alert('비밀번호를 다시 확인해주세요');
+        } else {
+          this.$router.push('/login')
+        }
       }
     }
   }

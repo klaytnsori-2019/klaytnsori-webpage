@@ -1,15 +1,21 @@
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
-    state: {
-        count: 0
+export const store = new Vuex.Store({
+  state: {
+    count: 0,
+    storeInput: null
+  },
+  mutations: {
+    increment (state) {
+      state.count++
     },
-    mutations: {
-        increment (state) {
-            state.count++
-        }
+    transferString (state, payload){
+      console.log(payload);
+      state.storeInput = payload
     }
+  }
 });

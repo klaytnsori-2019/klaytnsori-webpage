@@ -11,7 +11,7 @@
 
   export default {
     name: "SignUp",
-    components: { SignUpForm }
+    components: { SignUpForm },
   }
 </script>
 
