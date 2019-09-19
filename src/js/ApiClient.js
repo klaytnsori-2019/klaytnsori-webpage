@@ -15,6 +15,20 @@ function call(api, data, callback) {
   });
 }
 
+// get 방식 호출
+function get(api, data, callback) {
+  axios.get(baseURL+api, data).catch((error) => {
+    //error!!
+  }).then((result) => {
+    if(result.data.result===true) {
+      callback(true, result.data.data);
+    } else {
+      callback(false, result.data.message);
+      console.log(result.data.errors)
+    }
+  });
+}
+
 export default {
   login: function(email, password, callback) {
     call("membership/login", {email: email, password: password}, callback);
@@ -70,15 +84,8 @@ export default {
   show_question:function(question_id, callback) {
     call("question/show_question",{question_id: question_id}, callback)
   },
-  question_list:function(category, sort_num, keyword, question_state, select_enable, callback) {
-    call("question/question_list",
-      {
-        category: category,
-        sort_num: sort_num,
-        keyword: keyword,
-        question_state: question_state,
-        select_enable: select_enable
-      }, callback)
+  question_list:function(def, question_state,callback) {
+    get("question/question_list", { params : {default:def, question_state: question_state}}, callback)
   },
   insert_answer:function(question_id, session_id, answer_content, callback) {
     call("question/insert_answer",

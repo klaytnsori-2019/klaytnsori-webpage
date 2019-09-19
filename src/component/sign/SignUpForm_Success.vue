@@ -19,6 +19,7 @@
 </template>
 
 <script>
+
   import apiClient from './../../js/ApiClient.js';
 
   export default {
@@ -27,6 +28,7 @@
       login: function () {
         const email = document.getElementById('email_input').value;
         const password = document.getElementById('password_input').value;
+
         var vueObj = this;
         apiClient.login(email, password,function(result, data) {
           if(result) {

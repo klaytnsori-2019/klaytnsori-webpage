@@ -1,6 +1,6 @@
 <template>
     <router-link :to="'/question_detail/' + index">
-        <div class="main_list_tile">
+        <div  class="main-list-tile">
             <div class="title">{{title}}</div>
             <div class="reward">보상 : {{reward}} klay</div>
         </div>
@@ -13,13 +13,15 @@
         props: [
             "title",
             "reward",
-            "index"
+            "index",
+            "sells",
+            "buys"
         ]
     }
 </script>
 
 <style scoped>
-    .main_list_tile {
+    .main-list-tile {
         margin: 10px auto;
         width: 861px;
         height: 58px;
@@ -40,14 +42,16 @@
         line-height: 58px;
     }
 
-    .reward {
-        font-family: NanumGothic;
-        font-size: 12px;
-        font-weight: bold;
-        line-height: 1.17;
-        text-align: right;
-        color: #5d5d5d;
-        margin-top: 29px;
-        margin-right: 31px;
+
+
+    .reward{
+      font-family: NanumGothic;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.17;
+      text-align: right;
+      color: #5d5d5d;
+      margin-top: 29px;
+      margin-right: 31px;
     }
 </style>

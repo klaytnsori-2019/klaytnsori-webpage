@@ -17,10 +17,10 @@
                   </div>
                 <div class="klay_area">
                     <span class="description">나의 Klay</span>
-                    <span class="value">999999.9999</span>
+                    <span class="value">{{ klay }}</span>
                 </div>
                 <div class="sub_menu">
-                    <router-link to="my_page"><div class="sub_btn">마이페이지</div></router-link>
+                    <router-link to="mypage"><div class="sub_btn">마이페이지</div></router-link>
                     <div class="line"></div>
                   <router-link to="" ><div class="sub_btn" @click="logout">로그아웃</div></router-link>
                 </div>
@@ -28,28 +28,52 @@
         </div>
     </header>
 </template>
-
 <script>
-  import apiClient from './../../js/ApiClient.js';
+    import apiClient from './../../js/ApiClient.js';
 
-  export default {
-    name: "Header",
-    methods: {
-      logout: function () {
-        const session_id = this.$store.state.storeInput;
-        console.log(session_id);
-        var vueObj = this;
-        apiClient.logout(session_id, function (result, data) {
-          if (result) {
-            vueObj.$store.state.storeInput = null;
-            vueObj.$router.push('/login');
-          }
-          else {
-            alert(data);
-          }
-        });
-      }
-    }
+    export default {
+        name: "Header",
+        data () {
+            return {
+                klay : null
+            }
+        },
+        beforeRouteEnter (to, from, next) {
+            next( vm => vm.fetch() )
+        },
+        methods: {
+            logout: function () {
+                const session_id = this.$store.state.storeInput;
+                console.log(session_id);
+                let vueObj = this;
+                apiClient.logout(session_id, function (result, data) {
+                    if (result) {
+                        vueObj.$router.push('/login');
+                    }
+                    else {
+                        alert(data);
+                    }
+                });
+                this.$store.state.storeInput = null;
+            },
+
+            fetch: function () {
+                const session_id = this.$store.state.storeInput;
+                console.log("1123")
+                console.log(session_id);
+                let vueObj = this;
+                apiClient.remainklay(session_id, function (result, data) {
+                    if (result) {
+                        // vueObj.$router.push('/login');
+                        vueObj.klay = data;
+                        console.log(data.klay)
+                    }
+                    else {
+                        alert(data);
+                    }
+                });
+            }
+        }
   }
 </script>
 

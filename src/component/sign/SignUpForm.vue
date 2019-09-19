@@ -3,6 +3,7 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <input id='email_input' placeholder="email">
+
       <router-link to="" ><span id="check" @click="check_email"><br>중복체크</span></router-link>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
@@ -110,9 +111,6 @@
     font-size: 13px;
     padding-top: 0px;
     text-align:center;
-    margin-left: 342px;
-    margin-bottom: 0px;
-    margin-top: -81px;
     z-index: 1;
     position: absolute;
   }

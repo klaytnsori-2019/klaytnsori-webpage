@@ -14,6 +14,7 @@
 <script>
   export default {
     name: "FindForm",
+
     data() {
       return {
         txtInput: null
