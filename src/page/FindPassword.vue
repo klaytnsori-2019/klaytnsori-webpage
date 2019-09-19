@@ -11,12 +11,7 @@
 
   export default {
     name: "FindPassword",
-<<<<<<< HEAD
     components: { FindForm }
-=======
-    components: { FindForm },
-
->>>>>>> master
   }
 </script>
 

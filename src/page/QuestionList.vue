@@ -52,14 +52,14 @@
       // },
     methods:{
         fetchData: function () {
-            var def = 0;
-            var question_state = 0;
+            let def = 0;
+            let question_state = 0;
             let vuecomp = this
 
-            apiClient.questionlist(def = 0, question_state = 0, function (result, data) {
+            apiClient.question_list(def = 0, question_state = 0, function (result, data) {
                 if (result) {
                     vuecomp.questions = data;
-                    // console.log(questions)
+                    console.log(data)
                     // console.log(data.sessionId);
                 } else {
                     // console.log(result)

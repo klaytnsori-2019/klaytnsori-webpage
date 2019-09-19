@@ -22,18 +22,13 @@
                 <div class="sub_menu">
                     <router-link to="mypage"><div class="sub_btn">마이페이지</div></router-link>
                     <div class="line"></div>
-<<<<<<< HEAD
-                    <router-link to=""><div class="sub_btn" @click="logout">로그아웃</div></router-link>
-=======
                   <router-link to="" ><div class="sub_btn" @click="logout">로그아웃</div></router-link>
->>>>>>> master
                 </div>
             </div>
         </div>
     </header>
 </template>
 <script>
-<<<<<<< HEAD
     import apiClient from './../../js/ApiClient.js';
 
     export default {
@@ -79,28 +74,6 @@
                 });
             }
         }
-=======
-  import apiClient from './../../js/ApiClient.js';
-
-  export default {
-    name: "Header",
-    methods: {
-      logout: function () {
-        const session_id = this.$store.state.storeInput;
-        console.log(session_id);
-        var vueObj = this;
-        apiClient.logout(session_id, function (result, data) {
-          if (result) {
-            vueObj.$store.state.storeInput = null;
-            vueObj.$router.push('/login');
-          }
-          else {
-            alert(data);
-          }
-        });
-      }
->>>>>>> master
-    }
   }
 </script>
 

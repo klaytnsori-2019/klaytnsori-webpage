@@ -15,8 +15,7 @@ function call(api, data, callback) {
   });
 }
 
-<<<<<<< HEAD
-// get 방식 호
+// get 방식 호출
 function get(api, data, callback) {
   axios.get(baseURL+api, data).catch((error) => {
     //error!!
@@ -30,28 +29,10 @@ function get(api, data, callback) {
   });
 }
 
-=======
->>>>>>> master
 export default {
   login: function(email, password, callback) {
     call("membership/login", {email: email, password: password}, callback);
   },
-<<<<<<< HEAD
-  logout: function(sessionId, callback) {
-    call("membership/logout", {sessionId: sessionId}, callback);
-  },
-
-  signup: function (email, password, nickname, callback) {
-    call( "membership/signup", {email:email, password:password, nickname:nickname}, callback )
-  },
-
-  questionlist: function (def=0, question_state=0, callback) {
-    get( "question/question_list", {  params: { default: def, question_state: question_state}}, callback)
-  },
-
-  remainklay: function (sessionId, callback) {
-    get( "membership/my_remain_klay", { params: { session_id : sessionId}}, callback)
-=======
   logout: function(session_id, callback) {
     call("membership/logout", {session_id: session_id}, callback);
   },
@@ -103,15 +84,8 @@ export default {
   show_question:function(question_id, callback) {
     call("question/show_question",{question_id: question_id}, callback)
   },
-  question_list:function(category, sort_num, keyword, question_state, select_enable, callback) {
-    call("question/question_list",
-      {
-        category: category,
-        sort_num: sort_num,
-        keyword: keyword,
-        question_state: question_state,
-        select_enable: select_enable
-      }, callback)
+  question_list:function(def, question_state,callback) {
+    get("question/question_list", { params : {default:def, question_state: question_state}}, callback)
   },
   insert_answer:function(question_id, session_id, answer_content, callback) {
     call("question/insert_answer",
@@ -123,6 +97,5 @@ export default {
   select_answer:function(session_id, question_num, answer_num, select_enable, callback) {
     call("question/select_answer",
       {session_id: session_id, question_num: question_num, answer_num: answer_num, select_enable: select_enable}, callback)
->>>>>>> master
   }
 };

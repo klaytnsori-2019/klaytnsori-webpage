@@ -19,20 +19,16 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
+
   import apiClient from './../../js/ApiClient.js';
 
->>>>>>> master
   export default {
     name: "SignUpForm_Success",
     methods: {
       login: function () {
         const email = document.getElementById('email_input').value;
         const password = document.getElementById('password_input').value;
-<<<<<<< HEAD
-        this.$router.push('/main');
-=======
+
         var vueObj = this;
         apiClient.login(email, password,function(result, data) {
           if(result) {
@@ -44,7 +40,6 @@
             alert(data);
           }
         });
->>>>>>> master
       }
     }
   }

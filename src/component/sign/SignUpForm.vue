@@ -3,43 +3,17 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <input id='email_input' placeholder="email">
-<<<<<<< HEAD
-      <input id='password_input' placeholder="password" type="password">
-      <input id='password_confirm' placeholder="password confirm" type="password">
-      <input id='nickname' placeholder="nickname">
-      <button id="login_button" @click="sign_up">회원가입</button>
-=======
+
       <router-link to="" ><span id="check" @click="check_email"><br>중복체크</span></router-link>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
       <input id='nickname' placeholder="nickname">
       <button id="login_button" @click="check_pass">다음</button>
->>>>>>> master
     </div>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-    export default {
-      name: "SignUpForm",
-      methods: {
-        sign_up: function () {
-          const email = document.getElementById('email_input').value;
-          const password = document.getElementById('password_input').value;
-          const nickname = document.getElementById('nickname').value;
-          this.$router.push('/sign_up_suc');
-          apiClient.signup(email, password, nickname, function(result, data) {
-              if(result) {
-                  this.$router.push('/sign_up_suc');
-              } else {
-                  alert(data);
-              }
-          });
-        }
-      }
-    }
-=======
   import apiClient from './../../js/ApiClient.js';
 
   export default {
@@ -77,7 +51,6 @@
         }
       }
   }
->>>>>>> master
 </script>
 
 <style scoped>
@@ -128,8 +101,6 @@
     color: #ffffff;
   }
 
-<<<<<<< HEAD
-=======
   #check{
     display: inline-block;
     width: 70px;
@@ -140,9 +111,6 @@
     font-size: 13px;
     padding-top: 0px;
     text-align:center;
-    margin-left: 342px;
-    margin-bottom: 0px;
-    margin-top: -81px;
     z-index: 1;
     position: absolute;
   }
@@ -157,5 +125,4 @@
     background-color: transparent;
     text-decoration: none;
   }
->>>>>>> master
 </style>
