@@ -11,8 +11,7 @@
 
   export default {
     name: "FindPassword",
-    components: { FindForm },
-
+    components: { FindForm }
   }
 </script>
 

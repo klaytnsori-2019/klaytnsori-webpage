@@ -3,6 +3,7 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <div class="message">
+
         <span>{{this.$store.state.storeInput}}님</span>
         <br>
         새로운 비밀번호를 입력하세요
@@ -11,6 +12,7 @@
       </div>
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
+
       <button id="login_button" @click="login">다음</button>
     </div>
   </div>
@@ -21,6 +23,7 @@
     name: "ChangeForm",
     methods: {
       login: function () {
+
         const password = document.getElementById('password_input').value;
         const password_check= document.getElementById('password_confirm').value;
         if (password !==  password_check || !password) {
