@@ -17,8 +17,8 @@
             <span>최신순</span>
           </div>
         <ul>
-          <li v-for="item in question_item">
-            <list-tile :title="item.title" :brief="item.brief" :reward="item.reward" :date="item.date" :id="item.id"></list-tile>
+          <li v-for="item in questions">
+            <list-tile :title="item.question_title" :brief="item.question_content" :reward="item.klay" :date="item.time" :id="item.email"></list-tile>
           </li>
         </ul>
       </div>
@@ -30,6 +30,7 @@
 
   import Header from './../component/common/Header'
   import ListTile from '../component/question_list/QuestionListTile'
+  import apiClient from './../js/ApiClient.js';
 
   export default {
     name: "QuestionList",
@@ -37,50 +38,76 @@
       Header,
       ListTile
     },
-    data: () => {
+    data () {
       return {
-        question_item: question_item
+        questions : null
       }
+    },
+      beforeRouteEnter (to, from, next) {
+          next( vm => vm.fetchData() )
+      },
+      //
+      // created() {
+      //   this.fetchData()
+      // },
+    methods:{
+        fetchData: function () {
+            var def = 0;
+            var question_state = 0;
+            let vuecomp = this
+
+            apiClient.questionlist(def = 0, question_state = 0, function (result, data) {
+                if (result) {
+                    vuecomp.questions = data;
+                    // console.log(questions)
+                    // console.log(data.sessionId);
+                } else {
+                    // console.log(result)
+                    alert(data);
+                }
+            });
+        }
     }
   }
-  let question_item = [
-    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
-      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com",
-      date:"2019-08-08 14:28",
-      reward: 10},
-    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
-      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com",
-      date:"2019-08-08 14:28",
-      reward: 20},
-    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
-      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com",
-      date:"2019-08-08 14:28",
-      reward: 100},
-    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
-      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com",
-      date:"2019-08-08 14:28",
-      reward: 40},
-    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
-      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com",
-      date:"2019-08-08 14:28",
-      reward: 20},
-    {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
-      brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com",
-      date:"2019-08-08 14:28",
-      reward: 50}
-  ];
+  // let questions = [];
+  // let question_item = [
+  //   {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+  //     brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+  //       "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+  //     id:"doyun0916@naver.com",
+  //     date:"2019-08-08 14:28",
+  //     reward: 10},
+  //   {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+  //     brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+  //       "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+  //     id:"doyun0916@naver.com",
+  //     date:"2019-08-08 14:28",
+  //     reward: 20},
+  //   {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+  //     brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+  //       "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+  //     id:"doyun0916@naver.com",
+  //     date:"2019-08-08 14:28",
+  //     reward: 100},
+  //   {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+  //     brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+  //       "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+  //     id:"doyun0916@naver.com",
+  //     date:"2019-08-08 14:28",
+  //     reward: 40},
+  //   {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+  //     brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+  //       "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+  //     id:"doyun0916@naver.com",
+  //     date:"2019-08-08 14:28",
+  //     reward: 20},
+  //   {title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
+  //     brief:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
+  //       "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
+  //     id:"doyun0916@naver.com",
+  //     date:"2019-08-08 14:28",
+  //     reward: 50}
+  // ];
 </script>
 
 <style scoped>

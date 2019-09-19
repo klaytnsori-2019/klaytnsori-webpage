@@ -11,15 +11,18 @@ import MyAnswer from "./page/MyAnswer";
 import MyQuestion from "./page/MyQuestion";
 import QuestionDetail_like from './page/QuestionDetail_like.vue'
 import QuestionDetail_questioner from './page/QuestionDetail_questioner.vue'
-import SignUp from './page/SignUp.vue'
-import SignUp_Success from './page/SignUp_Success.vue'
 import FindPassword from './page/FindPassword.vue'
 import ChangePassword from './page/ChangePassword.vue'
+import MyPage from "./page/MyPage";
+import SignUp from "./page/SignUp";
+import SignUp_Success from "./page/SignUp_Success";
+
 // 컴포넌트를 import하고, router에 경로를 등록합니다.
 // SamplePage는 localhost:3000/sample 등으로 접속 가능합니다.
 import SamplePage from './page/SamplePage.vue'
 
 Vue.use(VueRouter);
+export const changeRoute = new Vue();
 
 const router = new VueRouter({
     mode: 'history',

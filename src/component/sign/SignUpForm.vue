@@ -20,6 +20,13 @@
           const password = document.getElementById('password_input').value;
           const nickname = document.getElementById('nickname').value;
           this.$router.push('/sign_up_suc');
+          apiClient.signup(email, password, nickname, function(result, data) {
+              if(result) {
+                  this.$router.push('/sign_up_suc');
+              } else {
+                  alert(data);
+              }
+          });
         }
       }
     }

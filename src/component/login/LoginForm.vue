@@ -16,19 +16,20 @@
 
 <script>
     import apiClient from './../../js/ApiClient.js';
-
     export default {
         name: "login_form",
         methods: {
             login: function () {
                 const email = document.getElementById('email_input').value;
                 const password = document.getElementById('password_input').value;
-                apiClient.login(email, password, function(result, data) {
+                const vueObj = this;
+                apiClient.login(email, password,function(result, data) {
                     if(result) {
-                      this.$router.push('/main');
-                      console.log(data.sessionId);
+                        vueObj.$store.state.storeInput = data.session_id;
+                        vueObj.$router.push('/main');
+                        console.log(data.session_id);
                     } else {
-                      alert(data);
+                        alert(data);
                     }
                 });
             }
