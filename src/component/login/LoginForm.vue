@@ -16,12 +16,17 @@
 
 <script>
     import apiClient from './../../js/ApiClient.js';
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     export default {
         name: "login_form",
         methods: {
             login: function () {
                 const email = document.getElementById('email_input').value;
                 const password = document.getElementById('password_input').value;
+<<<<<<< HEAD
                 const vueObj = this;
                 apiClient.login(email, password,function(result, data) {
                     if(result) {
@@ -30,6 +35,18 @@
                         console.log(data.session_id);
                     } else {
                         alert(data);
+=======
+              var vueObj = this;
+                apiClient.login(email, password,function(result, data) {
+
+                  if(result) {
+                    vueObj.$store.state.storeInput = data.session_id;
+                    vueObj.$router.push('/main');
+                    console.log(data.session_id);
+
+                    } else {
+                      alert(data);
+>>>>>>> master
                     }
                 });
             }

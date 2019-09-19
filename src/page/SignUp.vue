@@ -11,7 +11,11 @@
 
   export default {
     name: "SignUp",
+<<<<<<< HEAD
     components: { SignUpForm }
+=======
+    components: { SignUpForm },
+>>>>>>> master
   }
 </script>
 

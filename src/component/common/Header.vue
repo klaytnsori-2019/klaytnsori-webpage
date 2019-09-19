@@ -6,8 +6,15 @@
                 <div class="menu">
                     <router-link to="register_question"><span>질문하기</span></router-link>
                     <span>/</span>
-                    <router-link to="question_list"><span>질문보기</span></router-link>
-                </div>
+                  <span>질문보기
+                  <ul>
+                    <router-link to="question_list"><li>답변 진행중</li></router-link>
+                    <router-link to="question_list"><li>Like 진행중</li></router-link>
+                      <router-link to="question_list"><li>답변 완료</li></router-link>
+                  </ul>
+                  </span>
+
+                  </div>
                 <div class="klay_area">
                     <span class="description">나의 Klay</span>
                     <span class="value">{{ klay }}</span>
@@ -15,13 +22,18 @@
                 <div class="sub_menu">
                     <router-link to="mypage"><div class="sub_btn">마이페이지</div></router-link>
                     <div class="line"></div>
+<<<<<<< HEAD
                     <router-link to=""><div class="sub_btn" @click="logout">로그아웃</div></router-link>
+=======
+                  <router-link to="" ><div class="sub_btn" @click="logout">로그아웃</div></router-link>
+>>>>>>> master
                 </div>
             </div>
         </div>
     </header>
 </template>
 <script>
+<<<<<<< HEAD
     import apiClient from './../../js/ApiClient.js';
 
     export default {
@@ -67,7 +79,29 @@
                 });
             }
         }
+=======
+  import apiClient from './../../js/ApiClient.js';
+
+  export default {
+    name: "Header",
+    methods: {
+      logout: function () {
+        const session_id = this.$store.state.storeInput;
+        console.log(session_id);
+        var vueObj = this;
+        apiClient.logout(session_id, function (result, data) {
+          if (result) {
+            vueObj.$store.state.storeInput = null;
+            vueObj.$router.push('/login');
+          }
+          else {
+            alert(data);
+          }
+        });
+      }
+>>>>>>> master
     }
+  }
 </script>
 
 <style scoped>
@@ -107,6 +141,7 @@
         color: #5d5d5d;
         vertical-align: top;
         margin-left: 17px;
+        position: relative;
     }
 
     .klay_area {
@@ -160,5 +195,37 @@
         width: 114px;
         height: 0px;
         border: solid 1px #707070;
+    }
+
+    ul {
+      margin-top: -2px;
+      margin-left: 90px;
+      display:none;
+      position: absolute;
+      width: 160px;
+      height: 165px;
+      background: #969696;
+      border: solid 1px #a5a5a5;
+      color: white;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      z-index: 1;
+      line-height: 30px;
+    }
+    li{
+      margin-top: 18px;
+      font-size: 18px;
+      font-family: NanumGothic;
+      text-align: center;
+
+    }
+    .menu :hover ul {
+      display:block;
+    }
+    :visited {
+      color: white;
+      background-color: transparent;
+      text-decoration: none;
     }
 </style>

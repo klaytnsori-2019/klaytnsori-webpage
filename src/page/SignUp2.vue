@@ -1,22 +1,17 @@
 <template>
   <div id="login_page">
     <div class="content_area">
-      <FindForm/>
+      <Sign-Up-form2/>
     </div>
   </div>
 </template>
 
 <script>
-  import FindForm from './../component/password/FindForm.vue'
+  import SignUpForm2 from './../component/sign/SignUpForm2.vue'
 
   export default {
-    name: "FindPassword",
-<<<<<<< HEAD
-    components: { FindForm }
-=======
-    components: { FindForm },
-
->>>>>>> master
+    name: "SignUp2",
+    components: { SignUpForm2 },
   }
 </script>
 
@@ -29,4 +24,3 @@
     text-align: center;
   }
 </style>
-
