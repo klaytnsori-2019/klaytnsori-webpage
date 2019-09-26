@@ -6,17 +6,20 @@
       <div id="menu_name">
         <span id="menu">Menu</span>
         <ul>
-          <li><router-link to="/myklay">
+          <li>
             <a>- klay 거래 내역 보기</a>
-            <a class="more1">더보기</a>
-          </router-link></li>
-          <li><router-link to="/myquestion">
+            <router-link to="/myklay" class="more1">더보기</router-link>
+          </li>
+          <li>
             <a>- 내 질문 모아보기</a>
-            <a class="more">더보기</a>
-          </router-link></li>
-          <li><router-link to="/myanswer">
+            <router-link to="/myquestion" class="more">더보기</router-link>
+          </li>
+          <li>
             <a>- 내 답변 모아보기</a>
-            <a class="more">더보기</a>
+            <router-link to="/myanswer" class="more">더보기</router-link>
+          </li>
+          <li><router-link to="/change_pass">
+            <a>- 비밀번호 변경</a>
           </router-link></li>
         </ul>
       </div>
@@ -27,9 +30,49 @@
 <script>
   import Header from "../component/common/Header";
   import wallet_info from "../component/wallet/wallet_info";
-    export default {
+  import apiClient from './../js/ApiClient.js';
+
+  export default {
         name: "MyPage",
         components:{Header,wallet_info}
+        // data () {
+        //     return {
+        //         klays : null
+        //     }
+        // },
+        // beforeRouteEnter (to, from, next) {
+        //     next( vm => vm.fetchData() )
+        // },
+        // //
+        // // created() {
+        // //   this.fetchData()
+        // // },
+        // methods:{
+        //     fetchData: function () {
+        //         const session_id = this.$store.state.storeInput;
+        //         let vuecomp = this;
+        //         apiClient.my_page(session_id, function (result, data) {
+        //             if (result) {
+        //                 vuecomp.address = data;
+        //                 console.log(data);
+        //                 // console.log(data.sessionId);
+        //             } else {
+        //                 // console.log(result)
+        //                 alert(data);
+        //             }
+        //         });
+        //
+        //         apiClient.my_remain_klay(session_id, function (result, data) {
+        //             if (result) {
+        //                 console.log(data);
+        //                 vuecomp.klays = data;
+        //             }
+        //             else {
+        //                 alert(data);
+        //             }
+        //         });
+        //     }
+        // }
     }
 </script>
 
@@ -66,7 +109,7 @@
     letter-spacing: normal;
     /*margin-left: 200px;*/
     /*text-align: left;*/
-    color: #5d5d5d;
+    color: #383838;
   }
 
   .more
@@ -104,7 +147,7 @@
   a:link{text-decoration: none; color:#383838;}
   a:visited{text-decoration: none; color:#383838;}
   a:active{text-decoration: none; color:#383838;}
-  a:hover{text-decoration: none; color:#383838;}
+  /*a:hover{text-decoration: none; color:#383838;}*/
 
 
 </style>
