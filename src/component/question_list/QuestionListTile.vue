@@ -29,7 +29,7 @@
   .main_list_tile {
     margin: 10px auto;
     width: 861px;
-    height: 200px;
+    height: 100px;
     border-radius: 10px;
     background-color: #ffffff;
     display: flex;
@@ -63,7 +63,7 @@
     margin-left: 25px;
     white-space:pre;
     text-align: left;
-    position:absolute;
+    /*position:absolute;*/
   }
 
   .reward {
@@ -71,11 +71,12 @@
     font-size: 12px;
     font-weight: bold;
     line-height: 1.17;
-    text-align: left;
+    /*text-align: left;*/
     color: #5d5d5d;
     width: 110px;
-    margin-top: 170px;
+    margin-top: 60px;
     margin-left:50px;
+    margin-right: 20px;
 
   }
   .date{
@@ -90,8 +91,8 @@
     letter-spacing: normal;
     text-align: right;
     color: #656565;
-    margin-top: 170px;
-    margin-left:-200px;
+    margin-top: 60px;
+    margin-left:-300px;
     margin-right: -30px;
   }
 
@@ -106,7 +107,7 @@
     text-align: right;
     color: #656565;
     margin-top: 20px;
-    margin-left: 350px;
+    margin-left: 660px;
   }
 
 </style>
