@@ -71,10 +71,10 @@ export default {
     call("userInfo/my_like_list",{session_id: session_id}, callback)
   },
   my_remain_klay:function(session_id, callback) {
-    call("membership/my_remain_klay",{session_id: session_id}, callback)
+    get("userInfo/my_remain_klay",{params : {session_id: session_id}}, callback)
   },
   category:function(callback) {
-    call("question/category", null, callback)
+    get("question/category", null, callback)
   },
   insert_question:function(session_id, question_title, klay, question_content, category, callback) {
     call("question/insert_question",
@@ -97,5 +97,8 @@ export default {
   select_answer:function(session_id, question_num, answer_num, select_enable, callback) {
     call("question/select_answer",
       {session_id: session_id, question_num: question_num, answer_num: answer_num, select_enable: select_enable}, callback)
+  },
+  my_page:function (session_id, callback) {
+    get( "userInfo/", {params :{session_id:session_id}}, callback)
   }
 };
