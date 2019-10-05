@@ -36,7 +36,7 @@
           const password = document.getElementById('password_input').value;
           const passwordconf = document.getElementById('password_confirm').value;
           var vueObj = this;
-          if (password != passwordconf || !password) {
+          if (password !== passwordconf || !password) {
             alert('비밀번호를 다시 확인해주세요');
           } else {
             apiClient.signup(email, password, nickname, function (result, data) {
@@ -113,6 +113,8 @@
     text-align:center;
     z-index: 1;
     position: absolute;
+    margin-left: 342px;
+    margin-top: -80px;
   }
   :visited{
     color: black;

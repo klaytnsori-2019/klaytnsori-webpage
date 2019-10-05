@@ -42,8 +42,8 @@ export default {
   find_pw_auth_code: function(email, callback) {
     call("membership/find_pw_auth_code", {email: email}, callback)
   },
-  find_pw_auth_identity:function(email, authorize_text, callback) {
-    call("membership/find_pw_auth_identity", {email: email, authorize_text}, callback)
+  find_pw_auth_identity:function(authorize_text, password, email, callback) {
+    call("membership/find_pw_auth_identity", {authorize_text: authorize_text, password: password, email: email}, callback)
   },
   modify_pw:function(session_id, password, callback) {
     call("membership/modify_pw", {session_id: session_id, password: password}, callback)
@@ -51,9 +51,8 @@ export default {
   signup:function(email, password, nickname, callback) {
     call("membership/signup",{email: email, password: password, nickname: nickname}, callback)
   },
-  authorize_identity:function(email, password, nickname, authorize_text, callback) {
-    call("membership/authorize_identity",
-      {email: email, password: password, nickname: nickname, authorize_text: authorize_text}, callback)
+  authorize_signup:function(email, authorize_text, callback) {
+    call("membership/authorize_signup", {email: email, authorize_text: authorize_text}, callback)
   },
   account:function(session_id, callback) {
     call("membership/",{session_id: session_id}, callback)

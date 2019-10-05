@@ -6,31 +6,40 @@
 
         <span>{{this.$store.state.storeInput}}님</span>
         <br>
-        새로운 비밀번호를 입력하세요
+        코드와 새로운 비밀번호를 입력하세요
         <br>
         <br>
       </div>
+      <input id='code' placeholder="code">
       <input id='password_input' placeholder="password" type="password">
       <input id='password_confirm' placeholder="password confirm" type="password">
-
-      <button id="login_button" @click="login">다음</button>
+      <button id="login_button" @click="next">다음</button>
     </div>
   </div>
 </template>
 
 <script>
+  import apiClient from './../../js/ApiClient.js';
   export default {
     name: "ChangeForm",
     methods: {
-      login: function () {
-
+      next: function () {
+        const authorize_text = document.getElementById('code').value;
         const password = document.getElementById('password_input').value;
         const password_check= document.getElementById('password_confirm').value;
+        const email = this.$store.state.storeInput;
         if (password !==  password_check || !password) {
           alert('비밀번호를 다시 확인해주세요');
-        } else {
-          this.$router.push('/login')
         }
+        var vueObj = this;
+        apiClient.find_pw_auth_identity(authorize_text, password, email, function (result, data) {
+          if (result) {
+            vueObj.$store.state.storeInput = null;
+            vueObj.$router.push('/login');
+          } else {
+            alert(data);
+          }
+        })
       }
     }
   }

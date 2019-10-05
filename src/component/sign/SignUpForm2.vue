@@ -3,7 +3,7 @@
     <div class="form_wrapper">
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <input id='code' placeholder="code">
-      <button id="login_button" @click="authorize_identity">회원가입</button>
+      <button id="login_button" @click="authorize_signup">회원가입</button>
     </div>
   </div>
 </template>
@@ -14,11 +14,11 @@
   export default {
     name: "SignUpForm2",
     methods: {
-        authorize_identity: function (){
+        authorize_signup: function (){
           const email = this.$store.state.storeInput;
-          const code = document.getElementById('code').value;
+          const authorize_text = document.getElementById('code').value;
           var vueObj = this;
-          apiClient.authorize_identity(email, code , function (result, data) {
+          apiClient.authorize_signup(email, authorize_text, function (result, data) {
             if (result) {
               vueObj.$store.state.storeInput = null;
               vueObj.$router.push('/sign_up_suc');
@@ -26,6 +26,7 @@
               alert(data);
             }
           })
+
         }
     }
   }
