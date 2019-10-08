@@ -52,7 +52,7 @@
                             vuecomp.klays = data;
                         }
                         else {
-                            alert(data);
+                            alert("klay error");
                         }
                     });
                 }
@@ -70,7 +70,7 @@
                         vueObj.$router.push('/login');
                     }
                     else {
-                        alert(data);
+                        alert("logout error");
                     }
                 });
                 this.$store.state.storeInput = null;
