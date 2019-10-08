@@ -1,9 +1,5 @@
 <template>
   <router-link :to="'/question_detail/' + index">
-<!--    <div  v-bind:class="[sells ? 'addd' : 'subbb']">-->
-<!--      <div class="title">{{times}}</div>-->
-<!--      <div class="reward">{{reward}} klay</div>-->
-<!--    </div>-->
     <div v-if="sells === true" class="addd">
       <div class="title">{{times}}</div>
       <div class="contents">질문 채택으로 클레이튼 받음</div>
@@ -21,11 +17,8 @@
     export default {
         name: "KlayListTile",
         props: [
-            "title",
             "reward",
-            "index",
             "sells",
-            "buys",
             "times"
         ]
     }

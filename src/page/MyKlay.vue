@@ -45,7 +45,7 @@
                             vuecomp.transaction = data;
                             console.log(data);
                         } else {
-                            alert(data);
+                            alert("내가 수행한 트랜젝션이 없습니다.");
                         }
                     });
                 }

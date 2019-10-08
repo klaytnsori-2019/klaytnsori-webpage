@@ -45,7 +45,7 @@
                             vuecomp.myanswer = data;
                             console.log(data);
                         } else {
-                            alert(data);
+                            alert("내가 등록한 답변이 없습니다.");
                         }
                     });
                 }

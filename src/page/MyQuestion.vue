@@ -45,7 +45,7 @@
                         vuecomp.my_questions = data;
                         console.log(data);
                     } else {
-                        alert(data);
+                        alert("내가 등록한 질문이 없습니다.");
                     }
                 });
             }
