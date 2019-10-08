@@ -7,9 +7,7 @@
           <span>질문</span>
         </div>
         <ul>
-        <li v-for="item in question_item">
-            <list-tile :title="item.title" :detail="item.detail" :reward="item.reward" :date="item.date" :id="item.id"></list-tile>
-          </li>
+          <list-tile :title="question[0].question_title" :detail="question[0].question_content" :reward="question[0].klay" :date="question[0].time" :id="question[0].email"></list-tile>
         </ul>
       </div>
 
@@ -18,8 +16,8 @@
             <span>답변</span>
           </div>
        <ul>
-          <li v-for="item in answer_item">
-            <answer-tile :detail="item.detail" :id="item.id"></answer-tile>
+          <li v-for="item in question">
+            <answer-tile :detail="item.answer_content" :id="item.email"></answer-tile>
           </li>
         </ul>
       </div>
@@ -32,6 +30,7 @@
   import Header from './../component/common/Header'
   import ListTile from '../component/question_detail/QuestionDetailQTile'
   import AnswerTile from '../component/question_detail/QuestionDetailATile'
+  import apiClient from './../js/ApiClient.js';
 
   export default {
     name: "QuestionDetail",
@@ -40,12 +39,31 @@
       ListTile,
       AnswerTile
     },
-    data: () => {
-      return {
-        question_item: question_item,
-        answer_item : answer_item
+      data() {
+          return {
+              question: {},
+              answer_item : answer_item
+          }
+      },
+      watch: {
+
+          addr: {
+
+              immediate:true,
+              handler() {
+                  const index = this.$store.state.index;
+                  let vuecomp = this;
+                  apiClient.show_question(index, function (result, data) {
+                      if (result) {
+                          vuecomp.question = data;
+                          console.log(data);
+                      } else {
+                          alert("질문이 없습니다.");
+                      }
+                  });
+              }
+          }
       }
-    }
   }
   let question_item = [{title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
     detail:"가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하" +

@@ -82,7 +82,7 @@ export default {
         question_content: question_content, category:category}, callback)
   },
   show_question:function(question_id, callback) {
-    call("question/show_question",{question_id: question_id}, callback)
+    get("question/show_question",{params : {question_id: question_id}}, callback)
   },
   question_list:function(def, question_state,callback) {
     get("question/question_list", { params : {default:def, question_state: question_state}}, callback)

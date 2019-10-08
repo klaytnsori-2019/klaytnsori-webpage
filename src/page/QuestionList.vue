@@ -18,7 +18,7 @@
           </div>
         <ul>
           <li v-for="item in questions">
-            <list-tile :title="item.question_title" :brief="item.question_content" :reward="item.klay" :date="item.time" :id="item.email"></list-tile>
+            <list-tile :title="item.question_title" :brief="item.question_content" :reward="item.klay" :date="item.time" :id="item.email" :index="item.question_num"></list-tile>
           </li>
         </ul>
       </div>

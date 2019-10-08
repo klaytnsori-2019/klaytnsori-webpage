@@ -1,18 +1,20 @@
 <template>
-  <router-link :to="'/question_detail/' + index">
-    <div class="main_list_tile">
-      <span class="title">{{title}}</span>
-      <span class="id">{{id}}</span>
-      <div class="brief">{{brief}}</div>
-      <span class="date">{{date}}</span>
-      <span class="reward">보상 : {{reward}} klay</span>
-    </div>
-  </router-link>
+    <router-link to="/detail">
+      <div class="main_list_tile" @click="show_question">
+        <span class="title">{{title}}</span>
+        <span class="id">{{id}}</span>
+        <div class="brief">{{brief}}</div>
+        <span class="date">{{date}}</span>
+        <span class="reward">보상 : {{reward}} klay</span>
+      </div>
+    </router-link>
 
 </template>
 
 <script>
-  export default {
+    import apiClient from './../../js/ApiClient.js';
+
+    export default {
     name: "QuestionListTile",
     props: [
       "title",
@@ -21,7 +23,25 @@
       "index",
       "date",
       "id"
-    ]
+    ],
+      methods: {
+          show_question: function () {
+              const vueObj = this;
+              vueObj.$store.state.index = this.index;
+              console.log(this.index);
+              // vueObj.$router.push('/detail');
+
+              // apiClient.show_question(index,function(result, data) {
+              //     if(result) {
+              //         vueObj.$store.state.index = data.session_id;
+              //         vueObj.$router.push('/detail');
+              //         console.log(index);
+              //     } else {
+              //         alert(data);
+              //     }
+              // });
+          }
+      }
   }
 </script>
 
