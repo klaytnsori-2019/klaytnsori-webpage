@@ -7,7 +7,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     count: 0,
-    storeInput: null
+    storeInput: null,
+    index: null
   },
   mutations: {
     increment (state) {
