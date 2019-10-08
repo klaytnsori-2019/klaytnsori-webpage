@@ -7,8 +7,8 @@
         <span id="menu">My klay</span>
         <div id="contents">
           <ul>
-            <li v-for="item in like_item">
-              <klay-list-tile :buys="item.buy" :sells="item.sell" :title="item.title" :reward="item.reward"></klay-list-tile>
+            <li v-for="item in transaction">
+              <klay-list-tile :times="item.timestamp" :sells="item.isReceived" :reward="item.value"></klay-list-tile>
             </li>
           </ul>
         </div>
@@ -21,25 +21,37 @@
     import Header from "../component/common/Header";
     import wallet_info from "../component/wallet/wallet_info";
     import KlayListTile from "../component/klay/KlayListTile";
+    import apiClient from './../js/ApiClient.js';
+
 
     export default {
         name: "MyKlay",
         components:{Header,wallet_info,KlayListTile},
-        data: () => {
+        data() {
             return {
-                like_item: like_item
+                transaction: {}
+            }
+        },
+        watch: {
+
+            addr: {
+
+                immediate:true,
+                handler() {
+                    const session_id = this.$store.state.storeInput;
+                    let vuecomp = this;
+                    apiClient.transaction(session_id, function (result, data) {
+                        if (result) {
+                            vuecomp.transaction = data;
+                            console.log(data);
+                        } else {
+                            alert(data);
+                        }
+                    });
+                }
             }
         }
     }
-
-    let like_item = [
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 10, sell:true},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 20, sell:false},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 30, sell:false},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 40, sell:false},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 50}
-
-    ];
 
 </script>
 

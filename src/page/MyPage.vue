@@ -30,49 +30,10 @@
 <script>
   import Header from "../component/common/Header";
   import wallet_info from "../component/wallet/wallet_info";
-  import apiClient from './../js/ApiClient.js';
 
   export default {
         name: "MyPage",
         components:{Header,wallet_info}
-        // data () {
-        //     return {
-        //         klays : null
-        //     }
-        // },
-        // beforeRouteEnter (to, from, next) {
-        //     next( vm => vm.fetchData() )
-        // },
-        // //
-        // // created() {
-        // //   this.fetchData()
-        // // },
-        // methods:{
-        //     fetchData: function () {
-        //         const session_id = this.$store.state.storeInput;
-        //         let vuecomp = this;
-        //         apiClient.my_page(session_id, function (result, data) {
-        //             if (result) {
-        //                 vuecomp.address = data;
-        //                 console.log(data);
-        //                 // console.log(data.sessionId);
-        //             } else {
-        //                 // console.log(result)
-        //                 alert(data);
-        //             }
-        //         });
-        //
-        //         apiClient.my_remain_klay(session_id, function (result, data) {
-        //             if (result) {
-        //                 console.log(data);
-        //                 vuecomp.klays = data;
-        //             }
-        //             else {
-        //                 alert(data);
-        //             }
-        //         });
-        //     }
-        // }
     }
 </script>
 

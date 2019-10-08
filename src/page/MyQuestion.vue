@@ -7,8 +7,8 @@
         <span id="menu">My Question</span>
         <div id="contents">
           <ul>
-            <li v-for="item in like_item">
-              <main-list-tile :title="item.title" :reward="item.reward"></main-list-tile>
+            <li v-for="item in my_questions">
+              <main-list-tile :title="item.question_title" :reward="item.klay"></main-list-tile>
             </li>
           </ul>
         </div>
@@ -21,25 +21,36 @@
     import Header from "../component/common/Header";
     import wallet_info from "../component/wallet/wallet_info";
     import MainListTile from "../component/main/MainListTile";
+    import apiClient from './../js/ApiClient.js';
 
     export default {
         name: "MyQuestion",
         components:{Header,wallet_info,MainListTile},
-        data: () => {
+
+        data () {
             return {
-                like_item: like_item
+                my_questions : null
+            }
+        },
+        beforeRouteEnter (to, from, next) {
+            next( vm => vm.fetchData() )
+        },
+        methods:{
+            fetchData: function () {
+                const session_id = this.$store.state.storeInput;
+                let vuecomp = this;
+
+                apiClient.my_question_list(session_id, function (result, data) {
+                    if (result) {
+                        vuecomp.my_questions = data;
+                        console.log(data);
+                    } else {
+                        alert(data);
+                    }
+                });
             }
         }
     }
-
-    let like_item = [
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 10},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 20},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 30},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 40},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 50}
-
-    ];
 </script>
 
 <style scoped>
