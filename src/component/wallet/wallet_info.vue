@@ -22,7 +22,7 @@
         },
         watch: {
 
-            address: {
+            addr: {
 
                 immediate:true,
                 handler() {
@@ -31,6 +31,7 @@
                     apiClient.my_page(session_id, function (result, data) {
                         if (result) {
                             vuecomp.address = data;
+                            console.log(data);
                         } else {
                             alert(data);
                         }

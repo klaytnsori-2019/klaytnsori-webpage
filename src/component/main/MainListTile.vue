@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="'/question_detail/' + index">
+    <router-link :to="'/question_detail/' + '{{index}}'">
         <div  class="main-list-tile">
             <div class="title">{{title}}</div>
             <div class="reward">보상 : {{reward}} klay</div>
