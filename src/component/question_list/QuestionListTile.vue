@@ -29,17 +29,6 @@
               const vueObj = this;
               vueObj.$store.state.index = this.index;
               console.log(this.index);
-              // vueObj.$router.push('/detail');
-
-              // apiClient.show_question(index,function(result, data) {
-              //     if(result) {
-              //         vueObj.$store.state.index = data.session_id;
-              //         vueObj.$router.push('/detail');
-              //         console.log(index);
-              //     } else {
-              //         alert(data);
-              //     }
-              // });
           }
       }
   }

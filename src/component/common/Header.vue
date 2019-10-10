@@ -8,9 +8,9 @@
                     <span>/</span>
                   <span>질문보기
                   <ul>
-                    <router-link to="question_list"><li>답변 진행중</li></router-link>
-                    <router-link to="question_list"><li>Like 진행중</li></router-link>
-                      <router-link to="question_list"><li>답변 완료</li></router-link>
+                    <router-link to="question_list"><li @click="show_question_0">답변 진행중</li></router-link>
+                    <router-link to="question_list"><li @click="show_question_1">Like 진행중</li></router-link>
+                      <router-link to="question_list"><li @click="show_question_2">답변 완료</li></router-link>
                   </ul>
                   </span>
 
@@ -74,6 +74,18 @@
                     }
                 });
                 this.$store.state.storeInput = null;
+            },
+            show_question_0: function () {
+                const vueObj = this;
+                vueObj.$store.state.question_state = 0;
+            },
+            show_question_1: function () {
+                const vueObj = this;
+                vueObj.$store.state.question_state = 1;
+            },
+            show_question_2: function () {
+                const vueObj = this;
+                vueObj.$store.state.question_state = 2;
             }
         }
   }

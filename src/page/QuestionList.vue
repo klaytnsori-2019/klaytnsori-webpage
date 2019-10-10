@@ -43,24 +43,45 @@
         questions : null
       }
     },
-      beforeRouteEnter (to, from, next) {
-          next( vm => vm.fetchData() )
-      },
-    methods:{
-        fetchData: function () {
-            let def = 0;
-            let question_state = 0;
-            let vuecomp = this;
+      watch: {
 
-            apiClient.question_list(def = 0, question_state = 0, function (result, data) {
-                if (result) {
-                    vuecomp.questions = data;
-                } else {
-                    alert(data);
-                }
-            });
-        }
-    }
+          addr: {
+
+              immediate:true,
+              handler() {
+                  let def = 0;
+                  const question_state = this.$store.state.question_state;
+                  let vuecomp = this;
+                  apiClient.question_list(def = 0, question_state, function (result, data) {
+                      if (result) {
+                          vuecomp.questions = data;
+                          vuecomp.questions.length=5;
+                          console.log(question_state);
+                      } else {
+                          alert(data);
+                      }
+                  });
+              }
+          }
+      }
+    //
+    //   beforeRouteEnter (to, from, next) {
+    //       next( vm => vm.fetchData() )
+    //   },
+    // methods:{
+    //     fetchData: function () {
+    //         let def = 0;
+    //         const question_state = this.$store.state.question_state;
+    //         let vuecomp = this;
+    //         apiClient.question_list(def = 0, question_state, function (result, data) {
+    //             if (result) {
+    //                 vuecomp.questions = data;
+    //             } else {
+    //                 alert(data);
+    //             }
+    //         });
+    //     }
+    // }
   }
 </script>
 
