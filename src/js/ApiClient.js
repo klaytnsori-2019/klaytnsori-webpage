@@ -58,22 +58,22 @@ export default {
     call("membership/",{session_id: session_id}, callback)
   },
   transaction:function(session_id, callback) {
-    call("userInfo/transaction",{session_id: session_id}, callback)
+    get("userInfo/transaction",{params : {session_id: session_id}}, callback)
   },
   my_question_list:function(session_id, callback) {
-    call("userInfo/my_question_list",{session_id: session_id}, callback)
+    get("userInfo/my_question_list",{params : {session_id: session_id}}, callback)
   },
   my_answer_list:function(session_id, callback) {
-    call("userInfo/my_answer_list",{session_id: session_id}, callback)
+    get("userInfo/my_answer_list",{params : {session_id: session_id}}, callback)
   },
   my_like_list:function(session_id, callback) {
-    call("userInfo/my_like_list",{session_id: session_id}, callback)
+    get("userInfo/my_like_list",{params : {session_id: session_id}}, callback)
   },
   my_remain_klay:function(session_id, callback) {
-    call("membership/my_remain_klay",{session_id: session_id}, callback)
+    get("userInfo/my_remain_klay",{params : {session_id: session_id}}, callback)
   },
   category:function(callback) {
-    call("question/category", null, callback)
+    get("question/category", null, callback)
   },
   insert_question:function(session_id, question_title, klay, question_content, category, callback) {
     call("question/insert_question",
@@ -81,7 +81,7 @@ export default {
         question_content: question_content, category:category}, callback)
   },
   show_question:function(question_id, callback) {
-    call("question/show_question",{question_id: question_id}, callback)
+    get("question/show_question",{params : {question_id: question_id}}, callback)
   },
   question_list:function(def, question_state,callback) {
     get("question/question_list", { params : {default:def, question_state: question_state}}, callback)
@@ -96,5 +96,8 @@ export default {
   select_answer:function(session_id, question_num, answer_num, select_enable, callback) {
     call("question/select_answer",
       {session_id: session_id, question_num: question_num, answer_num: answer_num, select_enable: select_enable}, callback)
+  },
+  my_page:function (session_id, callback) {
+    get( "userInfo/", {params :{session_id:session_id}}, callback)
   }
 };

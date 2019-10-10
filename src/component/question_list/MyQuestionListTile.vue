@@ -3,7 +3,12 @@
     <div class="main_list_tile">
       <div class="title">{{title}}</div>
       <div class="contents">{{contents}}</div>
-      <div class="heart"><img id="hearts" src="../../assets/heart.svg"></div>
+      <div v-if="state === 1">
+        <img id="hearts" src="../../assets/heart.svg">
+      </div>
+      <div v-else>
+        <img id="non-heart" src="../../assets/search.svg">
+      </div>
     </div>
   </router-link>
 
@@ -15,7 +20,7 @@
         props: [
             "title",
             "contents",
-            "like"
+            "state"
         ]
     }
 </script>
@@ -44,11 +49,11 @@
     position:absolute;
   }
 
-  .heart {
-    margin-right: 55px;
-    margin-top: 32px;
+/*  .heart {*/
+/*    margin-right: 55px;*/
+/*    margin-top: 32px;*/
 
-}
+/*}*/
 
   .contents{
     display: block;
@@ -72,7 +77,15 @@
   #hearts {
     width : 40px;
     height: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
   }
 
+  #non-heart {
+    width : 40px;
+    height: 40px;
+    margin-right: 40px;
+    margin-top: 30px;
+  }
 
 </style>

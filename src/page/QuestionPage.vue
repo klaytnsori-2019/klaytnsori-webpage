@@ -12,9 +12,7 @@
               <div>
                 <select v-model="selected" class="category">
                   <option disabled value="대분류">분류를 선택하세요</option>
-                  <option>분류1</option>
-                  <option>분류2</option>
-                  <option>분류3</option>
+                  <option v-for="item in cat">{{item.category}}</option>
                 </select>
               </div>
               <div id="klay_input">
@@ -47,13 +45,37 @@
 <script>
     import Header from './../component/common/Header'
     import ListTile from './../component/main/MainListTile'
+    import apiClient from './../js/ApiClient.js';
 
     export default {
         name: "MainPage",
         components: {
             Header,
             ListTile
+        },
+    data () {
+        return {
+            cat : []
         }
+    },
+    beforeRouteEnter (to, from, next) {
+        next( vm => vm.fetchData() )
+    },
+    methods:{
+        fetchData: function () {
+            let vuecomp = this;
+
+            apiClient.category(function (result, data) {
+                if (result) {
+                    console.log(data);
+                    vuecomp.cat = data;
+                } else {
+                    // console.log(result)
+                    alert(data);
+                }
+            });
+        }
+    }
     }
 
 </script>

@@ -5,15 +5,42 @@
     </div>
     <div id="wallet_id">
       <span class="wallet">Wallet Address</span>
-      <span class="wallet_addr">ABCD123456789</span>
+      <span class="wallet_addr">{{ address.account_address }}</span>
     </div>
   </div>
 </template>
 
 <script>
+    import apiClient from './../../js/ApiClient.js';
+
     export default {
-        name: "wallet_info"
+        name: "wallet_info",
+        data() {
+            return {
+                address: {}
+            }
+        },
+        watch: {
+
+            addr: {
+
+                immediate:true,
+                handler() {
+                    const session_id = this.$store.state.storeInput;
+                    let vuecomp = this;
+                    apiClient.my_page(session_id, function (result, data) {
+                        if (result) {
+                            vuecomp.address = data;
+                            console.log(data);
+                        } else {
+                            alert(data);
+                        }
+                    });
+                }
+            }
+        }
     }
+
 </script>
 
 <style scoped>

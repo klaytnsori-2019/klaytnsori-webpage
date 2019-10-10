@@ -1,8 +1,14 @@
 <template>
   <router-link :to="'/question_detail/' + index">
-    <div  v-bind:class="[sells ? 'addd' : 'subbb', 'nnn']">
-      <div class="title">{{title}}</div>
-      <div class="reward">보상 : {{reward}} klay</div>
+    <div v-if="sells === true" class="addd">
+      <div class="title">{{times}}</div>
+      <div class="contents">질문 채택으로 클레이튼 받음</div>
+      <div class="reward">{{reward}} klay</div>
+    </div>
+    <div v-else class="subbb">
+      <div class="title">{{times}}</div>
+      <div class="contents">질문 등록으로 클레이튼 보냄</div>
+      <div class="reward">{{reward}} klay</div>
     </div>
   </router-link>
 </template>
@@ -11,11 +17,9 @@
     export default {
         name: "KlayListTile",
         props: [
-            "title",
             "reward",
-            "index",
             "sells",
-            "buys"
+            "times"
         ]
     }
 </script>
@@ -59,7 +63,7 @@
     line-height: 1.17;
     text-align: right;
     color: red;
-    margin-top: 29px;
+    margin-top: 20px;
     margin-right: 31px;
   }
 
@@ -70,7 +74,7 @@
     line-height: 1.17;
     text-align: right;
     color: blue;
-    margin-top: 29px;
+    margin-top: 20px;
     margin-right: 31px;
   }
 
@@ -81,7 +85,17 @@
     line-height: 1.17;
     text-align: right;
     color: red;
-    margin-top: 29px;
+    margin-top: 20px;
     margin-right: 31px;
+  }
+
+  .contents {
+    display: inline-block;
+    font-family: NanumGothic;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    color: #717171;
+    line-height: 58px;
   }
 </style>

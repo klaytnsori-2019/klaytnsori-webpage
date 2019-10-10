@@ -6,17 +6,20 @@
       <div id="menu_name">
         <span id="menu">Menu</span>
         <ul>
-          <li><router-link to="/myklay">
+          <li>
             <a>- klay 거래 내역 보기</a>
-            <a class="more1">더보기</a>
-          </router-link></li>
-          <li><router-link to="/myquestion">
+            <router-link to="/myklay" class="more1">더보기</router-link>
+          </li>
+          <li>
             <a>- 내 질문 모아보기</a>
-            <a class="more">더보기</a>
-          </router-link></li>
-          <li><router-link to="/myanswer">
+            <router-link to="/myquestion" class="more">더보기</router-link>
+          </li>
+          <li>
             <a>- 내 답변 모아보기</a>
-            <a class="more">더보기</a>
+            <router-link to="/myanswer" class="more">더보기</router-link>
+          </li>
+          <li><router-link to="/change_pass">
+            <a>- 비밀번호 변경</a>
           </router-link></li>
         </ul>
       </div>
@@ -27,7 +30,8 @@
 <script>
   import Header from "../component/common/Header";
   import wallet_info from "../component/wallet/wallet_info";
-    export default {
+
+  export default {
         name: "MyPage",
         components:{Header,wallet_info}
     }
@@ -66,7 +70,7 @@
     letter-spacing: normal;
     /*margin-left: 200px;*/
     /*text-align: left;*/
-    color: #5d5d5d;
+    color: #383838;
   }
 
   .more
@@ -104,7 +108,7 @@
   a:link{text-decoration: none; color:#383838;}
   a:visited{text-decoration: none; color:#383838;}
   a:active{text-decoration: none; color:#383838;}
-  a:hover{text-decoration: none; color:#383838;}
+  /*a:hover{text-decoration: none; color:#383838;}*/
 
 
 </style>

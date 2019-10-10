@@ -1,6 +1,6 @@
 <template>
-    <router-link :to="'/question_detail/' + index">
-        <div  class="main-list-tile">
+    <router-link to="/detail">
+        <div  class="main-list-tile" @click="show_question">
             <div class="title">{{title}}</div>
             <div class="reward">보상 : {{reward}} klay</div>
         </div>
@@ -13,10 +13,15 @@
         props: [
             "title",
             "reward",
-            "index",
-            "sells",
-            "buys"
-        ]
+            "index"
+        ],
+        methods: {
+            show_question: function () {
+                const vueObj = this;
+                vueObj.$store.state.index = this.index;
+                console.log(this.index);
+            }
+        }
     }
 </script>
 

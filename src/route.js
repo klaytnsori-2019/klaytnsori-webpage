@@ -44,7 +44,6 @@ const router = new VueRouter({
         { path: '/sign_up_suc', component:SignUp_Success},
         { path: '/find_pass', component:FindPassword},
         { path: '/change_pass', component:ChangePassword},
-        { path: '/change_pass', component:ChangePassword},
         { path: '/sign_up2', component:SignUp2}
         ]
 });

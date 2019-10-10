@@ -1,18 +1,20 @@
 <template>
-  <router-link :to="'/question_detail/' + index">
-    <div class="main_list_tile">
-      <span class="title">{{title}}</span>
-      <span class="id">{{id}}</span>
-      <div class="brief">{{brief}}</div>
-      <span class="date">{{date}}</span>
-      <span class="reward">보상 : {{reward}} klay</span>
-    </div>
-  </router-link>
+    <router-link to="/detail">
+      <div class="main_list_tile" @click="show_question">
+        <span class="title">{{title}}</span>
+        <span class="id">{{id}}</span>
+        <div class="brief">{{brief}}</div>
+        <span class="date">{{date}}</span>
+        <span class="reward">보상 : {{reward}} klay</span>
+      </div>
+    </router-link>
 
 </template>
 
 <script>
-  export default {
+    import apiClient from './../../js/ApiClient.js';
+
+    export default {
     name: "QuestionListTile",
     props: [
       "title",
@@ -21,7 +23,14 @@
       "index",
       "date",
       "id"
-    ]
+    ],
+      methods: {
+          show_question: function () {
+              const vueObj = this;
+              vueObj.$store.state.index = this.index;
+              console.log(this.index);
+          }
+      }
   }
 </script>
 
@@ -29,7 +38,7 @@
   .main_list_tile {
     margin: 10px auto;
     width: 861px;
-    height: 200px;
+    height: 100px;
     border-radius: 10px;
     background-color: #ffffff;
     display: flex;
@@ -63,7 +72,7 @@
     margin-left: 25px;
     white-space:pre;
     text-align: left;
-    position:absolute;
+    /*position:absolute;*/
   }
 
   .reward {
@@ -71,11 +80,12 @@
     font-size: 12px;
     font-weight: bold;
     line-height: 1.17;
-    text-align: left;
+    /*text-align: left;*/
     color: #5d5d5d;
     width: 110px;
-    margin-top: 170px;
+    margin-top: 60px;
     margin-left:50px;
+    margin-right: 20px;
 
   }
   .date{
@@ -90,8 +100,8 @@
     letter-spacing: normal;
     text-align: right;
     color: #656565;
-    margin-top: 170px;
-    margin-left:-200px;
+    margin-top: 60px;
+    margin-left:-300px;
     margin-right: -30px;
   }
 
@@ -106,7 +116,7 @@
     text-align: right;
     color: #656565;
     margin-top: 20px;
-    margin-left: 350px;
+    margin-left: 660px;
   }
 
 </style>

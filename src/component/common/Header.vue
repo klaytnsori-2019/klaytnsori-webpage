@@ -4,20 +4,20 @@
             <router-link to="main"><img id='logo' src="./../../assets/logo.svg"></router-link>
             <div class="menu_area">
                 <div class="menu">
-                    <router-link to="register_question"><span>질문하기</span></router-link>
+                    <router-link to="question"><span>질문하기</span></router-link>
                     <span>/</span>
                   <span>질문보기
                   <ul>
-                    <router-link to="question_list"><li>답변 진행중</li></router-link>
-                    <router-link to="question_list"><li>Like 진행중</li></router-link>
-                      <router-link to="question_list"><li>답변 완료</li></router-link>
+                    <router-link to="question_list"><li @click="show_question_0">답변 진행중</li></router-link>
+                    <router-link to="question_list"><li @click="show_question_1">Like 진행중</li></router-link>
+                      <router-link to="question_list"><li @click="show_question_2">답변 완료</li></router-link>
                   </ul>
                   </span>
 
                   </div>
                 <div class="klay_area">
                     <span class="description">나의 Klay</span>
-                    <span class="value">{{ klay }}</span>
+                    <span class="value" id="app">{{ klays.Klay }}</span>
                 </div>
                 <div class="sub_menu">
                     <router-link to="mypage"><div class="sub_btn">마이페이지</div></router-link>
@@ -35,12 +35,31 @@
         name: "Header",
         data () {
             return {
-                klay : null
+                klays : {}
             }
         },
-        beforeRouteEnter (to, from, next) {
-            next( vm => vm.fetch() )
+        watch : {
+
+            klay : {
+
+                immediate : true,
+                handler() {
+                    const session_id = this.$store.state.storeInput;
+                    let vuecomp = this;
+                    apiClient.my_remain_klay(session_id, function (result, data) {
+                        if (result) {
+                            // console.log(data);
+                            vuecomp.klays = data;
+                        }
+                        else {
+                            alert("klay error");
+                        }
+                    });
+                }
+            }
+
         },
+
         methods: {
             logout: function () {
                 const session_id = this.$store.state.storeInput;
@@ -51,32 +70,26 @@
                         vueObj.$router.push('/login');
                     }
                     else {
-                        alert(data);
+                        alert("logout error");
                     }
                 });
                 this.$store.state.storeInput = null;
             },
-
-            fetch: function () {
-                const session_id = this.$store.state.storeInput;
-                console.log("1123")
-                console.log(session_id);
-                let vueObj = this;
-                apiClient.remainklay(session_id, function (result, data) {
-                    if (result) {
-                        // vueObj.$router.push('/login');
-                        vueObj.klay = data;
-                        console.log(data.klay)
-                    }
-                    else {
-                        alert(data);
-                    }
-                });
+            show_question_0: function () {
+                const vueObj = this;
+                vueObj.$store.state.question_state = 0;
+            },
+            show_question_1: function () {
+                const vueObj = this;
+                vueObj.$store.state.question_state = 1;
+            },
+            show_question_2: function () {
+                const vueObj = this;
+                vueObj.$store.state.question_state = 2;
             }
         }
   }
 </script>
-
 <style scoped>
     header {
         height: 115px;
