@@ -15,8 +15,8 @@
                     <span class="subtitle">질문자 대신 답변을 선택하고 보상을 받아가세요</span>
                 </div>
                 <ul>
-                    <li v-for="item in like_item">
-                        <list-tile :title="item.title" :reward="item.reward"></list-tile>
+                    <li v-for="item in like_question">
+                        <list-tile :title="item.question_title" :reward="item.klay" :index="item.question_num"></list-tile>
                     </li>
                 </ul>
             </div>
@@ -25,8 +25,8 @@
                     <span>질문 리스트</span>
                 </div>
                 <ul>
-                    <li v-for="item in question_item">
-                        <list-tile :title="item.title" :reward="item.reward"></list-tile>
+                    <li v-for="item in ing_question">
+                        <list-tile :title="item.question_title" :reward="item.klay" :index="item.question_num"></list-tile>
                     </li>
                 </ul>
             </div>
@@ -37,6 +37,7 @@
 <script>
     import Header from './../component/common/Header'
     import ListTile from './../component/main/MainListTile'
+    import apiClient from './../js/ApiClient.js';
 
     export default {
         name: "MainPage",
@@ -44,27 +45,43 @@
             Header,
             ListTile
         },
-        data: () => {
+        data () {
             return {
-                like_item: like_item,
-                question_item: question_item
+                like_question : null,
+                ing_question : null
+            }
+        },
+        watch: {
+
+            addr: {
+
+                immediate:true,
+                handler() {
+                    let def = 0;
+                    let question_state = 0;
+                    let vuecomp = this;
+                    apiClient.question_list(def = 0, question_state = 0, function (result, data) {
+                        if (result) {
+                            vuecomp.ing_question = data;
+                            vuecomp.ing_question.length=6;
+                            console.log(ing_question);
+                        } else {
+                            alert(data);
+                        }
+                    });
+                    apiClient.question_list(def = 0, question_state = 1, function (result, data) {
+                        if (result) {
+                            vuecomp.like_question = data;
+                            vuecomp.like_question.length=2;
+                            console.log(question_state);
+                        } else {
+                            alert(data);
+                        }
+                    });
+                }
             }
         }
     }
-
-    let like_item = [
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 10},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 20}
-    ];
-
-    let question_item = [
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 10},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 20},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 100},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 40},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 20},
-        {title: "이런이런 질문이 있습니다! 답변 부탁드립니다", reward: 50}
-    ];
 </script>
 
 <style scoped>
