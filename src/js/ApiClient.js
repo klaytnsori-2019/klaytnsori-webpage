@@ -36,24 +36,23 @@ export default {
   logout: function(session_id, callback) {
     call("membership/logout", {session_id: session_id}, callback);
   },
-  signup: function(email, callback) {
-    call( "membership/signup", {email: email}, callback)
+  check_email: function(email, callback) {
+    call( "membership/check_email", {email: email}, callback)
   },
   find_pw_auth_code: function(email, callback) {
     call("membership/find_pw_auth_code", {email: email}, callback)
   },
-  find_pw_auth_identity:function(email, authorize_text, callback) {
-    call("membership/find_pw_auth_identity", {email: email, authorize_text}, callback)
+  find_pw_auth_identity:function(authorize_text, password, email, callback) {
+    call("membership/find_pw_auth_identity", {authorize_text: authorize_text, password: password, email: email}, callback)
   },
   modify_pw:function(session_id, password, callback) {
     call("membership/modify_pw", {session_id: session_id, password: password}, callback)
   },
-  authorize_code:function(email, password, nickname, callback) {
-    call("membership/authorize_code",{email: email, password: password, nickname: nickname}, callback)
+  signup:function(email, password, nickname, callback) {
+    call("membership/signup",{email: email, password: password, nickname: nickname}, callback)
   },
-  authorize_identity:function(email, password, nickname, authorize_text, callback) {
-    call("membership/authorize_identity",
-      {email: email, password: password, nickname: nickname, authorize_text: authorize_text}, callback)
+  authorize_signup:function(email, authorize_text, callback) {
+    call("membership/authorize_signup", {email: email, authorize_text: authorize_text}, callback)
   },
   account:function(session_id, callback) {
     call("membership/",{session_id: session_id}, callback)
@@ -76,9 +75,9 @@ export default {
   category:function(callback) {
     get("question/category", null, callback)
   },
-  insert_question:function(session_id, question_title, klay, question_content, category, callback) {
+  insert_question:function(session_id, question_title, question_klay, question_content, category, callback) {
     call("question/insert_question",
-      {session_id: session_id, question_title: question_title, klay: klay,
+      {session_id: session_id, question_title: question_title, question_klay: question_klay,
         question_content: question_content, category:category}, callback)
   },
   show_question:function(question_id, callback) {

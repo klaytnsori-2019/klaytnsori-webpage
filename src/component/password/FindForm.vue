@@ -12,6 +12,7 @@
 </template>
 
 <script>
+  import apiClient from './../../js/ApiClient.js';
   export default {
     name: "FindForm",
 
@@ -26,9 +27,15 @@
         const email = document.getElementById("email_input").value;
         if (!email) {
           alert('이메일을 다시 확인해주세요');
-        } else {
-          this.$router.push('/change_pass');
         }
+        var vueObj = this;
+        apiClient.find_pw_auth_code(email, function (result, data) {
+          if (result) {
+            vueObj.$router.push('/change_pass');
+          } else {
+            alert(data);
+          }
+        })
       }
     }
   }

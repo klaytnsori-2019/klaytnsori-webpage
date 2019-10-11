@@ -12,8 +12,11 @@
               <div>
                 <select v-model="selected" class="category">
                   <option disabled value="대분류">분류를 선택하세요</option>
-                  <option v-for="item in cat">{{item.category}}</option>
+                  <option v-for="item in cat" v-bind:value="item.category_num">
+                    {{item.category}}
+                  </option>
                 </select>
+                <span id="cate" style="display:none"> {{ selected }} </span>
               </div>
               <div id="klay_input">
                 <ul>
@@ -29,8 +32,8 @@
             <div>
               <ul>
                 <li>
-                  <router-link to="/#" tag="button" id="reg" class="btn">등록</router-link>
-                </li>
+                  <router-link to=""> <div tag="button" id="reg" class="btn" @click="register">등록</div></router-link>
+                  </li>
                 <li>
                   <router-link to="/main" tag="button" id="cancel" class="btn">취소</router-link>
                 </li>
@@ -43,6 +46,7 @@
 </template>
 
 <script>
+
     import Header from './../component/common/Header'
     import ListTile from './../component/main/MainListTile'
     import apiClient from './../js/ApiClient.js';
@@ -53,8 +57,10 @@
             Header,
             ListTile
         },
-    data () {
-        return {
+
+      data () {
+          return {
+            selected: 0,
             cat : []
         }
     },
@@ -64,7 +70,6 @@
     methods:{
         fetchData: function () {
             let vuecomp = this;
-
             apiClient.category(function (result, data) {
                 if (result) {
                     console.log(data);
@@ -74,8 +79,25 @@
                     alert(data);
                 }
             });
+        },
+        register: function () {
+            const session_id = this.$store.state.storeInput;
+            const question_title = document.getElementById('question_title').value;
+            const question_klay = document.getElementById('question_klay').value;
+            const question_content = document.getElementById('contents').value;
+            const category = document.getElementById('cate').innerText;
+            let vueObj = this;
+            apiClient.insert_question(session_id, question_title, question_klay, question_content, category,function(result, data) {
+              if(result) {
+                vueObj.$store.state.index = data.question_id;
+                vueObj.$router.push('/detail');
+              } else {
+                alert(data);
+              }
+            });
         }
-    }
+        }
+
     }
 
 </script>
