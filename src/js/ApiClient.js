@@ -75,9 +75,9 @@ export default {
   category:function(callback) {
     get("question/category", null, callback)
   },
-  insert_question:function(session_id, question_title, klay, question_content, category, callback) {
+  insert_question:function(session_id, question_title, question_klay, question_content, category, callback) {
     call("question/insert_question",
-      {session_id: session_id, question_title: question_title, klay: klay,
+      {session_id: session_id, question_title: question_title, question_klay: question_klay,
         question_content: question_content, category:category}, callback)
   },
   show_question:function(question_id, callback) {
