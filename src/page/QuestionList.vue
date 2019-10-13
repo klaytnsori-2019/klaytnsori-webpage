@@ -29,7 +29,7 @@
 <script>
 
   import Header from './../component/common/Header'
-  import ListTile from '../component/question_list/QuestionListTile'
+  import ListTile from '../component/main/MainListTile'
   import apiClient from './../js/ApiClient.js';
 
   export default {
