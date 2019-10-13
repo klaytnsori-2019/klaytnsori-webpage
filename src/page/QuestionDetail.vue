@@ -7,24 +7,24 @@
           <span>질문</span>
         </div>
         <ul>
-          <list-tile :title="question[0].question_title" :detail="question[0].question_content" :reward="question[0].klay" :date="question[0].time" :id="question[0].email"></list-tile>
+          <list-tile :title="question[0].question_title" :detail="question[0].question_content" :reward="question[0].klay" :date="question[0].time" :id="question[0].question_email"></list-tile>
         </ul>
       </div>
 
       <div id="answer_area">
         <div class="title_area">
-            <span>답변</span>
-          </div>
-       <ul>
+          <span>답변</span>
+        </div>
+        <ul>
           <li v-for="item in question">
-            <answer-tile :detail="item.answer_content" :id="item.email"></answer-tile>
+            <answer-tile :detail="item.answer_content" :id="item.answer_email"></answer-tile>
           </li>
         </ul>
       </div>
       <textarea id="contents" v-model="message" placeholder="답변을 입력해 주세요"></textarea>
-      </div>
-    <button @click = "insert" tag="button" id="reg" class="btn"><span>등록</span></button>
     </div>
+    <button @click = "insert" tag="button" id="reg" class="btn"><span>등록</span></button>
+  </div>
 </template>
 
 <script>
@@ -41,30 +41,30 @@
       ListTile,
       AnswerTile
     },
-      data() {
-          return {
-              question: {},
-          }
-      },
-      watch: {
+    data() {
+      return {
+        question: {},
+      }
+    },
+    watch: {
 
-          addr: {
+      addr: {
 
-              immediate:true,
-              handler() {
-                  const index = this.$store.state.index;
-                  let vuecomp = this;
-                  apiClient.show_question(index, function (result, data) {
-                      if (result) {
-                          vuecomp.question = data;
-                          console.log(data);
-                      } else {
-                          alert("질문이 없습니다.");
-                      }
-                  });
-              }
-          }
-      },
+        immediate:true,
+        handler() {
+          const index = this.$store.state.index;
+          let vuecomp = this;
+          apiClient.show_question(index, function (result, data) {
+            if (result) {
+              vuecomp.question = data;
+              console.log(data);
+            } else {
+              alert("질문이 없습니다.");
+            }
+          });
+        }
+      }
+    },
     methods: {
       insert: function () {
         const session_id = this.$store.state.storeInput;

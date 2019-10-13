@@ -93,9 +93,9 @@ export default {
   insert_like:function(session_id, question_num, answer_num, callback) {
     call("question/insert_like",{session_id: session_id, question_num: question_num, answer_num: answer_num}, callback)
   },
-  select_answer:function(session_id, question_num, answer_num, select_enable, callback) {
+  select_answer:function(session_id, question_id, answer_id, select_enable, callback) {
     call("question/select_answer",
-      {session_id: session_id, question_num: question_num, answer_num: answer_num, select_enable: select_enable}, callback)
+      {session_id: session_id, question_id: question_id, answer_id: answer_id, select_enable: select_enable}, callback)
   },
   my_page:function (session_id, callback) {
     get( "userInfo/", {params :{session_id:session_id}}, callback)

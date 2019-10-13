@@ -55,7 +55,6 @@
                   apiClient.question_list(def = 0, question_state, function (result, data) {
                       if (result) {
                           vuecomp.questions = data;
-                          vuecomp.questions.length=5;
                           console.log(question_state);
                       } else {
                           alert(data);

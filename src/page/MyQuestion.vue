@@ -8,7 +8,7 @@
         <div id="contents">
           <ul>
             <li v-for="item in my_questions">
-              <main-list-tile :title="item.question_title" :reward="item.klay"></main-list-tile>
+              <main-list-tile :title="item.question_title" :reward="item.klay" :index="item.question_num"></main-list-tile>
             </li>
           </ul>
         </div>
