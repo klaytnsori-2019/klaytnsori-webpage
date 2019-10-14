@@ -7,18 +7,17 @@
           <span>질문</span>
         </div>
         <ul>
-          <li v-for="item in question_item">
-            <list-tile :title="item.title" :detail="item.detail" :reward="item.reward" :date="item.date" :id="item.id"></list-tile>
-          </li>
+          <list-tile :title="question[0].question_title" :detail="question[0].question_content" :reward="question[0].klay" :date="question[0].time" :id="question[0].question_email"></list-tile>
         </ul>
       </div>
+
       <div id="answer_area">
         <div class="title_area">
           <span>답변</span>
         </div>
         <ul>
-          <li v-for="item in answer_item">
-            <answer-tile :detail="item.detail" :id="item.id"></answer-tile>
+          <li v-for="item in question">
+            <answer-tile :detail="item.answer_content" :id="item.answer_email" :answer_index="item.answer_num"></answer-tile>
           </li>
         </ul>
       </div>
@@ -31,54 +30,41 @@
   import Header from './../component/common/Header'
   import ListTile from '../component/question_detail/QuestionDetailQTile'
   import AnswerTile from '../component/question_detail/QuestionDetailQueTile'
+  import apiClient from './../js/ApiClient.js';
 
   export default {
-    name: "QuestionDetail_questioner",
+    name: "QuestionDetail",
     components: {
       Header,
       ListTile,
-      AnswerTile,
+      AnswerTile
     },
-    data: () => {
+    data() {
       return {
-        question_item: question_item,
-        answer_item : answer_item
+        question: {},
+      }
+    },
+    watch: {
+
+      addr: {
+
+        immediate:true,
+        handler() {
+          const index = this.$store.state.index;
+          let vuecomp = this;
+          apiClient.show_question(index, function (result, data) {
+            if (result) {
+              vuecomp.question = data;
+              console.log(data);
+            } else {
+              alert("질문이 없습니다.");
+            }
+          });
+        }
       }
     }
   }
-  let question_item = [{title: "이런이런 질문이 있습니다! 답변 부탁드립니다",
-    detail:"가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하" +
-      "가나다라마바사아자차카타파하가나\n가나다라마바사아자차카타파하가나다라마바사아자차카타파하" +
-      "가나다라마바사아자차카\n하가나다라마바사아자차카타파하가나다라마바사아자차카타파하" +
-      "가나다라마바사아자차카타파하가나다\n가나다라마바사아자차카타파하가나다라마바사아자차카타파하" +
-      "가나다라마바사아자차카타파하가나다라\n마바사아자차카타파하가나다라마바사아자차카타파하" +
-      "가나다라마바사아자차카타파하가나다\n가나다라마바사아자차카타파하가나다라마바사아자차카타파하" +
-      "가나다라마바사아자차카타파하가나다라마\n바사아자차카타파하가나다라마바사아자차카타파하" +
-      "가나다라마바사아자차카타파하가나다\n가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차" +
-      "카타파하가나다라마바사아자차카타파하가나\n다라마바사아자차카타파하가나다라마바사아자차카타파하가나다\n",
-    id:"doyun0916@naver.com",
-    date:"작성일시:2019-08-08 14:28",
-    reward: 10}];
-  let answer_item = [
-    {  detail:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com"},
-    { detail:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com"},
-    {detail:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com"},
-    {detail:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com"},
-    {detail:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com"},
-    {detail:"간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n" +
-        "간단한 내용 들어가겠습니다!!! white-space 사랑합니다\n"+"간단한 내용 들어가겠습니다!!! white-space 사랑합니다",
-      id:"doyun0916@naver.com"}
-  ];
+
 </script>
 
 <style scoped>
@@ -94,5 +80,38 @@
     margin-left: 65px;
     margin-top: 52px;
   }
-</style>
 
+  #contents {
+    /*position: absolute;*/
+    /*margin-top: 10px;*/
+    /*margin-left: 600px;*/
+    width: 850px;
+    height: 170px;
+    background: white;
+    border: solid 1px #a5a5a5;
+    font-family: NanumGothic;
+    font-size: 10px;
+    /*float: left;*/
+    color: black;
+    padding-top: 10px;
+    padding-left: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  #reg {
+    position: absolute;
+    /*margin-left: 930px;*/
+    width: 60px;
+    height: 30px;
+    float: right;
+    color: white;
+    background-color: #4695d9;
+    text-align: center;
+    margin-top: -35px;
+    margin-left: 1200px;
+
+  }
+
+</style>

@@ -8,7 +8,7 @@
         <div id="contents">
           <ul>
             <li v-for="item in myanswer">
-              <myquestion :title="item.question_title" :contents="item.answer_content" :state="item.is_selected" ></myquestion>
+              <myquestion :title="item.question_title" :contents="item.answer_content" :state="item.is_selected" :index="item.question_num" ></myquestion>
             </li>
           </ul>
         </div>

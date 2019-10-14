@@ -32,7 +32,7 @@
             <div>
               <ul>
                 <li>
-                  <router-link to=""> <div tag="button" id="reg" class="btn" @click="register">등록</div></router-link>
+                  <router-link to=""><div @click="register" tag="button" id="reg" class="btn">등록</div></router-link>
                   </li>
                 <li>
                   <router-link to="/main" tag="button" id="cancel" class="btn">취소</router-link>
@@ -90,7 +90,7 @@
             apiClient.insert_question(session_id, question_title, question_klay, question_content, category,function(result, data) {
               if(result) {
                 vueObj.$store.state.index = data.question_id;
-                vueObj.$router.push('/detail');
+                vueObj.$router.push('/detail_q');
               } else {
                 alert(data);
               }

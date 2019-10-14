@@ -1,6 +1,6 @@
 <template>
-  <router-link :to="'/question_detail/' + index">
-    <div class="main_list_tile">
+  <router-link to = "/detail">
+    <div class="main_list_tile" @click ="show_question">
       <div class="title">{{title}}</div>
       <div class="contents">{{contents}}</div>
       <div v-if="state === 1">
@@ -20,8 +20,17 @@
         props: [
             "title",
             "contents",
-            "state"
-        ]
+            "state",
+            "index",
+
+        ],
+      methods: {
+        show_question: function () {
+          const vueObj = this;
+          vueObj.$store.state.index = this.index;
+          console.log(this.index);
+        }
+      }
     }
 </script>
 

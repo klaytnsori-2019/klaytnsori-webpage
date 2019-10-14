@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/detail">
+    <router-link to="/detail_q">
       <div class="main_list_tile" @click="show_question">
         <span class="title">{{title}}</span>
         <span class="id">{{id}}</span>

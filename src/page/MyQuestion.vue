@@ -8,7 +8,7 @@
         <div id="contents">
           <ul>
             <li v-for="item in my_questions">
-              <main-list-tile :title="item.question_title" :reward="item.klay"></main-list-tile>
+              <question-list-tile :title="item.question_title" :reward="item.klay" :index="item.question_num"></question-list-tile>
             </li>
           </ul>
         </div>
@@ -20,12 +20,12 @@
 <script>
     import Header from "../component/common/Header";
     import wallet_info from "../component/wallet/wallet_info";
-    import MainListTile from "../component/main/MainListTile";
+    import QuestionListTile from "../component/question_list/QuestionListTile";
     import apiClient from './../js/ApiClient.js';
 
     export default {
         name: "MyQuestion",
-        components:{Header,wallet_info,MainListTile},
+        components:{Header,wallet_info,QuestionListTile},
 
         data () {
             return {
