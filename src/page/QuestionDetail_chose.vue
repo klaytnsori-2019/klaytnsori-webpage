@@ -30,6 +30,7 @@
   import Header from './../component/common/Header'
   import ListTile from '../component/question_detail/QuestionDetailQTile'
   import AnswerTile from '../component/question_detail/QuestionDetailATile'
+  import apiClient from './../js/ApiClient.js';
 
   export default {
     name: "QuestionDetail_chose",

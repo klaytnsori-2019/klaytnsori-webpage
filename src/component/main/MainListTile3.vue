@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/detail">
+  <router-link to="/detail_chose">
     <div  class="main-list-tile" @click="show_question">
       <div class="title">{{title}}</div>
       <div class="reward">보상 : {{reward}} klay</div>

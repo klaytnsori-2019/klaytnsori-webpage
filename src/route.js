@@ -23,6 +23,7 @@ import ChangePassword from './page/ChangePassword.vue'
 import SamplePage from './page/SamplePage.vue'
 import QuestionListLike from "./page/QuestionListLike";
 import QuestionListChose from "./page/QuestionListChose";
+import QuestionDetail_chose from "./page/QuestionDetail_chose";
 
 Vue.use(VueRouter);
 export const changeRoute = new Vue();
@@ -43,6 +44,7 @@ const router = new VueRouter({
       {path:'/myquestion', component:MyQuestion},
       {path:'/myanswer', component:MyAnswer},
         { path: '/detail_like', component:QuestionDetail_like},
+      { path: '/detail_chose', component:QuestionDetail_chose},
         { path: '/detail_q', component:QuestionDetail_questioner},
         { path: '/sign_up', component:SignUp},
         { path: '/sign_up_suc', component:SignUp_Success},
