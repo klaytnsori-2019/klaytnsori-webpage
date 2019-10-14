@@ -29,7 +29,7 @@
 <script>
 
   import Header from './../component/common/Header'
-  import ListTile from '../component/question_list/QuestionListTile'
+  import ListTile from '../component/main/MainListTile'
   import apiClient from './../js/ApiClient.js';
 
   export default {
@@ -55,7 +55,6 @@
                   apiClient.question_list(def = 0, question_state, function (result, data) {
                       if (result) {
                           vuecomp.questions = data;
-                          vuecomp.questions.length=5;
                           console.log(question_state);
                       } else {
                           alert(data);

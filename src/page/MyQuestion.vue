@@ -20,12 +20,12 @@
 <script>
     import Header from "../component/common/Header";
     import wallet_info from "../component/wallet/wallet_info";
-    import MainListTile from "../component/main/MainListTile";
+    import QuestionListTile from "../component/question_list/QuestionListTile";
     import apiClient from './../js/ApiClient.js';
 
     export default {
         name: "MyQuestion",
-        components:{Header,wallet_info,MainListTile},
+        components:{Header,wallet_info,QuestionListTile},
 
         data () {
             return {

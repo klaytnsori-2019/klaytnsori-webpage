@@ -9,6 +9,7 @@ export const store = new Vuex.Store({
     count: 0,
     storeInput: null,
     index: null,
+    answer_index: null,
     question_state:0
   },
   mutations: {

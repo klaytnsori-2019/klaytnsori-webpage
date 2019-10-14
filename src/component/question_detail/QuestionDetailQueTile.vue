@@ -2,7 +2,7 @@
   <div class="answer_list_tile">
     <span class="id">{{id}}</span>
     <div class="detail">{{detail}}</div>
-    <div class="like_block">
+    <div class="like_block" @click="select_answer">
       <span class="choose">채택</span>
     </div>
   </div>
@@ -10,14 +10,35 @@
 
 <script>
 
+  import apiClient from './../../js/ApiClient.js';
+
   export default {
     name: "QuestionDetailQueTile",
     props: [
       "detail",
       "index",
       "id",
-      "select"
-    ]
+      "select",
+      "answer_index"
+    ],
+    methods: {
+      select_answer: function () {
+        const session_id = this.$store.state.storeInput;
+        const question_id = this.$store.state.index;
+        var select_enable = true;
+        const vueObj = this;
+        vueObj.$store.state.answer_index = this.answer_index;
+        const answer_id = vueObj.$store.state.answer_index;
+        apiClient.select_answer(session_id, question_id, answer_id, select_enable, function(result, data) {
+          if(result) {
+            vueObj.$router.push('/myquestion');
+          } else {
+            alert(data);
+          }
+        });
+
+      }
+    }
   }
 </script>
 
