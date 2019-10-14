@@ -30,7 +30,7 @@
                         vueObj.$router.push('/main');
                         console.log(data.session_id);
                     } else {
-                        alert(data);
+                        alert("가입된 이메일이 아니거나 비밀번호가 일치하지 않습니다.");
                     }
                 });
             }

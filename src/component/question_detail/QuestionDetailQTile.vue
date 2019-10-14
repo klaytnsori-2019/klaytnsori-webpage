@@ -2,7 +2,7 @@
   <div class="main_list_tile">
     <div class="id">{{id}}</div>
     <div class="title">{{title}}</div>
-    <span class="date">{{date}}</span>
+    <span class="date">작성 일시 : {{date}}</span>
     <span class="reward">보상 : {{reward}} klay</span>
     <div class="detail">{{detail}}</div>
     </div>
