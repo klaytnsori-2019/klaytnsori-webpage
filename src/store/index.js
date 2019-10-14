@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
   },
   mutations: {
     increment (state) {
-      state.count++
+      state.question_state++
     },
     transferString (state, payload){
       console.log(payload);

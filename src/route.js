@@ -21,6 +21,8 @@ import ChangePassword from './page/ChangePassword.vue'
 // 컴포넌트를 import하고, router에 경로를 등록합니다.
 // SamplePage는 localhost:3000/sample 등으로 접속 가능합니다.
 import SamplePage from './page/SamplePage.vue'
+import QuestionListLike from "./page/QuestionListLike";
+import QuestionListChose from "./page/QuestionListChose";
 
 Vue.use(VueRouter);
 export const changeRoute = new Vue();
@@ -32,6 +34,8 @@ const router = new VueRouter({
         { path: '/main', component: MainPage },
         { path: '/sample', component: SamplePage},
         { path: '/question_list', component: QuestionList},
+      {path: '/question_list_like', component: QuestionListLike},
+      {path: '/question_list_chose', component: QuestionListChose},
         { path: '/detail', component:QuestionDetail},
       {path: '/mypage', component:MyPage},
       {path: '/question', component:QuestionPage},

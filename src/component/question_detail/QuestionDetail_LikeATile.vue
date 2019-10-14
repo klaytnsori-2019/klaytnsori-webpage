@@ -4,7 +4,7 @@
       </span>
         </span>
     <div class="detail">{{detail}}</div>
-    <div class="like_block">
+    <div class="like_block" @click="insert_like">
       <span class="heart_white"><img src=./../../assets/heart_white.svg></span>
     </div>
   </div>
@@ -19,7 +19,23 @@
       "index",
       "id",
       "like"
-    ]
+    ],
+    methods: {
+      insert_like: function () {
+        const session_id = this.$store.state.storeInput;
+        const question_id = this.$store.state.index;
+        const vueObj = this;
+        vueObj.$store.state.answer_index = this.answer_index;
+        const answer_id = vueObj.$store.state.answer_index;
+        apiClient.select_answer(session_id, question_id, answer_id, function (result, data) {
+          if (result) {
+            vueObj.$router.push('/myanswer');
+          } else {
+            alert(data);
+          }
+        });
+      }
+    }
   }
 </script>
 

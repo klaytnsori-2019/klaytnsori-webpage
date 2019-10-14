@@ -16,7 +16,7 @@
                 </div>
                 <ul>
                     <li v-for="item in like_question">
-                        <list-tile :title="item.question_title" :reward="item.klay" :index="item.question_num"></list-tile>
+                        <list-tile-like :title="item.question_title" :reward="item.klay" :index="item.question_num"></list-tile-like>
                     </li>
                 </ul>
             </div>
@@ -37,13 +37,15 @@
 <script>
     import Header from './../component/common/Header'
     import ListTile from './../component/main/MainListTile'
+    import ListTileLike from './../component/main/MainListTile2'
     import apiClient from './../js/ApiClient.js';
 
     export default {
         name: "MainPage",
         components: {
             Header,
-            ListTile
+            ListTile,
+            ListTileLike
         },
         data () {
             return {
@@ -57,19 +59,20 @@
 
                 immediate:true,
                 handler() {
-                    let def = 0;
+                    let def = 1;
                     let question_state = 0;
                     let vuecomp = this;
-                    apiClient.question_list(def = 0, question_state = 0, function (result, data) {
+                    apiClient.question_list(def = 1, question_state = 0, function (result, data) {
                         if (result) {
                             vuecomp.ing_question = data;
                             vuecomp.ing_question.length=6;
+                          vuecomp.$store.state.question_state = 0;
                             console.log(ing_question);
                         } else {
                             alert(data);
                         }
                     });
-                    apiClient.question_list(def = 0, question_state = 1, function (result, data) {
+                    apiClient.question_list(def = 1, question_state = 1, function (result, data) {
                         if (result) {
                             vuecomp.like_question = data;
                             vuecomp.like_question.length=2;

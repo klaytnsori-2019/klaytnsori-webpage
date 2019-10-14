@@ -21,9 +21,7 @@
           </li>
         </ul>
       </div>
-      <textarea id="contents" v-model="message" placeholder="답변을 입력해 주세요"></textarea>
     </div>
-    <button @click = "insert" tag="button" id="reg" class="btn"><span>등록</span></button>
   </div>
 </template>
 
@@ -31,11 +29,10 @@
 
   import Header from './../component/common/Header'
   import ListTile from '../component/question_detail/QuestionDetailQTile'
-  import AnswerTile from '../component/question_detail/QuestionDetail_LikeATile'
-  import apiClient from './../js/ApiClient.js';
+  import AnswerTile from '../component/question_detail/QuestionDetailATile'
 
   export default {
-    name: "QuestionDetail",
+    name: "QuestionDetail_chose",
     components: {
       Header,
       ListTile,
@@ -65,7 +62,6 @@
         }
       }
     }
-
   }
 
 </script>
