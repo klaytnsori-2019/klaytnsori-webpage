@@ -8,14 +8,14 @@
           <input placeholder="검색어를 입력하세요">
         </form>
       </div>
-        <div id="question_area">
-          <div class="title_area">
+      <div id="question_area">
+        <div class="title_area">
           <span>질문 리스트</span>
         </div>
-          <div class="cate_latest">
-            <span>분류 </span>
-            <span>최신순</span>
-          </div>
+        <div class="cate_latest">
+          <span>분류 </span>
+          <span>최신순</span>
+        </div>
         <ul>
           <li v-for="item in questions">
             <list-tile :title="item.question_title" :brief="item.question_content" :reward="item.klay" :date="item.time" :id="item.email" :index="item.question_num"></list-tile>
@@ -29,11 +29,11 @@
 <script>
 
   import Header from './../component/common/Header'
-  import ListTile from '../component/main/MainListTile'
+  import ListTile from '../component/main/MainListTile2'
   import apiClient from './../js/ApiClient.js';
 
   export default {
-    name: "QuestionList",
+    name: "QuestionListLike",
     components: {
       Header,
       ListTile
@@ -43,26 +43,26 @@
         questions : null
       }
     },
-      watch: {
+    watch: {
 
-          addr: {
+      addr: {
 
-              immediate:true,
-              handler() {
-                  let def = 1;
-                  const question_state = this.$store.state.question_state;
-                  let vuecomp = this;
-                  apiClient.question_list(def = 1, question_state, function (result, data) {
-                      if (result) {
-                          vuecomp.questions = data;
-                          console.log(question_state);
-                      } else {
-                          alert(data);
-                      }
-                  });
-              }
-          }
+        immediate:true,
+        handler() {
+          let def = 1;
+          const question_state = this.$store.state.question_state;
+          let vuecomp = this;
+          apiClient.question_list(def = 1, question_state, function (result, data) {
+            if (result) {
+              vuecomp.questions = data;
+              console.log(question_state);
+            } else {
+              alert(data);
+            }
+          });
+        }
       }
+    }
     //
     //   beforeRouteEnter (to, from, next) {
     //       next( vm => vm.fetchData() )

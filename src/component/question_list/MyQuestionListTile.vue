@@ -3,7 +3,7 @@
     <div class="main_list_tile" @click ="show_question">
       <div class="title">{{title}}</div>
       <div class="contents">{{contents}}</div>
-      <div v-if="state === 1">
+      <div v-if=" state = 1">
         <img id="hearts" src="../../assets/heart.svg">
       </div>
       <div v-else>
