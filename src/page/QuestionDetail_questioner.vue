@@ -33,7 +33,7 @@
   import apiClient from './../js/ApiClient.js';
 
   export default {
-    name: "QuestionDetail",
+    name: "QuestionDetail_questioner",
     components: {
       Header,
       ListTile,

@@ -23,23 +23,14 @@
                   <li>
                     <a><input id="question_klay" placeholder="보상"></a>
                     <a>klay</a>
+                    <a><div @click="register"><router-link to="" tag="button" id="reg" class="btn">등록</router-link></div></a>
+                    <a><router-link to="/main" tag="button" id="cancel" class="btn">취소</router-link></a>
                   </li>
                 </ul>
               </div>
               <div>
                 <textarea id="contents" v-model="message" placeholder="내용을 입력해 주세요"></textarea>
               </div>
-            <div>
-              <ul>
-                <li>
-                  <router-link to=""><div @click="register" tag="button" id="reg" class="btn">등록</div></router-link>
-                  </li>
-                <li>
-                  <router-link to="/main" tag="button" id="cancel" class="btn">취소</router-link>
-                </li>
-              </ul>
-            </div>
-
           </form>
         </div>
     </div>

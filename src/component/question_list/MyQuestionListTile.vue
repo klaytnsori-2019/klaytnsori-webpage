@@ -1,16 +1,12 @@
 <template>
-  <router-link to = "/detail">
-    <div class="main_list_tile" @click ="show_question">
+
+    <div class="main_list_tile">
       <div class="title">{{title}}</div>
       <div class="contents">{{contents}}</div>
-      <div v-if=" state = 1">
-        <img id="hearts" src="../../assets/heart.svg">
-      </div>
-      <div v-else>
-        <img id="non-heart" src="../../assets/search.svg">
+      <div v-show="is_selected" class="like_block">
+        <span class="choose">채택완료</span>
       </div>
     </div>
-  </router-link>
 
 </template>
 
@@ -20,10 +16,15 @@
         props: [
             "title",
             "contents",
-            "state",
+            "is_selected",
             "index",
 
         ],
+      data() {
+        return {
+          is_selected
+        }
+      },
       methods: {
         show_question: function () {
           const vueObj = this;
@@ -95,6 +96,29 @@
     height: 40px;
     margin-right: 40px;
     margin-top: 30px;
+  }
+  .like_block{
+
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #4695d9;
+    display: inline-block;
+    margin-left: 100px;
+  }
+
+  .choose{
+    display: inline-block;
+    font-family: NanumGothic;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.13;
+    letter-spacing: normal;
+    text-align: left;
+    margin-top:45px;
+    color: #ffffff;
   }
 
 </style>

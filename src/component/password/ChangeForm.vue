@@ -4,7 +4,7 @@
       <img id='main_logo' src='./../../assets/main_logo.svg'>
       <div class="message">
 
-        <span>{{this.$store.state.storeInput}}님</span>
+        <span>{{this.$store.state.email}}님</span>
         <br>
         코드와 새로운 비밀번호를 입력하세요
         <br>
@@ -27,7 +27,7 @@
         const authorize_text = document.getElementById('code').value;
         const password = document.getElementById('password_input').value;
         const password_check= document.getElementById('password_confirm').value;
-        const email = this.$store.state.storeInput;
+        const email = this.$store.state.email;
         if (password !==  password_check || !password) {
           alert('비밀번호를 다시 확인해주세요');
         }

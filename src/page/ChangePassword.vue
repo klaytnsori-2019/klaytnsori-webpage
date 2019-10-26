@@ -12,6 +12,7 @@
   export default {
     name: "ChangePassword",
     components: { ChangeForm }
+
   }
 </script>
 

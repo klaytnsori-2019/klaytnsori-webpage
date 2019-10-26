@@ -90,8 +90,8 @@ export default {
     call("question/insert_answer",
       {question_id: question_id, session_id: session_id, answer_content: answer_content}, callback)
   },
-  insert_like:function(session_id, question_num, answer_num, callback) {
-    call("question/insert_like",{session_id: session_id, question_num: question_num, answer_num: answer_num}, callback)
+  insert_like:function(session_id, question_id, answer_id, callback) {
+    call("question/insert_like",{session_id: session_id, question_id: question_id, answer_id: answer_id}, callback)
   },
   select_answer:function(session_id, question_id, answer_id, select_enable, callback) {
     call("question/select_answer",

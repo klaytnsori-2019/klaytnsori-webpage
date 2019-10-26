@@ -18,8 +18,12 @@
             <a>- 내 답변 모아보기</a>
             <router-link to="/myanswer" class="more">더보기</router-link>
           </li>
-          <li><router-link to="/change_pass">
-            <a>- 비밀번호 변경</a>
+          <li>
+            <a>- like 누른 글 리스트</a>
+            <router-link to ="/like_answer" class="more">더보기</router-link>
+          </li>
+          <li><router-link to="">
+            <a @click="next">- 비밀번호 변경</a>
           </router-link></li>
         </ul>
       </div>
@@ -30,11 +34,31 @@
 <script>
   import Header from "../component/common/Header";
   import wallet_info from "../component/wallet/wallet_info";
+  import apiClient from "../js/ApiClient";
 
   export default {
         name: "MyPage",
-        components:{Header,wallet_info}
-    }
+        components:{Header,wallet_info},
+        methods:{
+          next: function() {
+            const vueObj = this;
+            const email = this.$store.state.email;
+            const session_id = this.$store.state.storeInput;
+            apiClient.find_pw_auth_code(email, function (result, data) {
+              if (result) {
+                vueObj.$router.push('/change_pass');
+              } else {
+                alert(data);
+              }
+            });
+            apiClient.logout(session_id, function (result, data) {
+              if(result) {
+                vueObj.$store.state.storeInput = null;
+              }
+            });
+          }
+        }
+  }
 </script>
 
 <style scoped>

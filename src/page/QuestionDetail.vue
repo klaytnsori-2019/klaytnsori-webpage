@@ -44,12 +44,12 @@
     data() {
       return {
         question: {},
+
       }
     },
     watch: {
 
       addr: {
-
         immediate:true,
         handler() {
           const index = this.$store.state.index;
@@ -66,14 +66,14 @@
       }
     },
     methods: {
-      insert: function () {
+        insert: function () {
         const session_id = this.$store.state.storeInput;
         const question_id = this.$store.state.index;
         const answer_content = document.getElementById('contents').value;
         var vueObj = this;
         apiClient.insert_answer(question_id, session_id, answer_content, function(result, data) {
           if(result) {
-            vueObj.$router.push('/myanswer');
+            vueObj.$router.push('/empty');
           } else {
             alert(data);
           }

@@ -12,24 +12,26 @@
 
 <script>
 
+  import apiClient from "../../js/ApiClient";
+
   export default {
     name: "QuestionDetail_LikeATile",
     props: [
       "detail",
       "index",
       "id",
-      "like"
+      "like",
+      "answer_index"
     ],
     methods: {
       insert_like: function () {
         const session_id = this.$store.state.storeInput;
         const question_id = this.$store.state.index;
+        const answer_id = this.answer_index;
         const vueObj = this;
-        vueObj.$store.state.answer_index = this.answer_index;
-        const answer_id = vueObj.$store.state.answer_index;
-        apiClient.select_answer(session_id, question_id, answer_id, function (result, data) {
+        apiClient.insert_like(session_id, question_id, answer_id, function (result, data) {
           if (result) {
-            vueObj.$router.push('/myanswer');
+            vueObj.$router.push('/empty2');
           } else {
             alert(data);
           }
@@ -92,7 +94,7 @@
     width: 120px;
     height: 150px;
     border-radius: 10px;
-    background-color: gainsboro;
+    background-color: red;
     display: inline-block;
   }
 

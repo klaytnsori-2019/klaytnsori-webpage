@@ -17,7 +17,8 @@
       "reward",
       "index",
       "date",
-      "id"
+      "id",
+      "question_email"
     ]
   }
 </script>

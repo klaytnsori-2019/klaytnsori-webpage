@@ -4,13 +4,15 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
+
 export const store = new Vuex.Store({
   state: {
     count: 0,
     storeInput: null,
     index: null,
     answer_index: null,
-    question_state:0
+    question_state:0,
+    email: null,
   },
   mutations: {
     increment (state) {
@@ -18,7 +20,7 @@ export const store = new Vuex.Store({
     },
     transferString (state, payload){
       console.log(payload);
-      state.storeInput = payload
+      state.email = payload
     }
   }
 });

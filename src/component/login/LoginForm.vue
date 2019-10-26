@@ -22,6 +22,7 @@
         methods: {
             login: function () {
                 const email = document.getElementById('email_input').value;
+                this.$store.state.email = email;
                 const password = document.getElementById('password_input').value;
                 const vueObj = this;
                 apiClient.login(email, password,function(result, data) {
@@ -29,6 +30,7 @@
                         vueObj.$store.state.storeInput = data.session_id;
                         vueObj.$router.push('/main');
                         console.log(data.session_id);
+                        console.log(vueObj.$store.state.email);
                     } else {
                         alert(data);
                     }

@@ -17,7 +17,7 @@
         </div>
         <ul>
           <li v-for="item in question">
-            <answer-tile :detail="item.answer_content" :id="item.answer_email"></answer-tile>
+            <answer-tile :detail="item.answer_content" :id="item.answer_email" :is_selected="item.is_selected"></answer-tile>
           </li>
         </ul>
       </div>

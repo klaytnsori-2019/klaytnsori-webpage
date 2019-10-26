@@ -17,13 +17,11 @@
         </div>
         <ul>
           <li v-for="item in question">
-            <answer-tile :detail="item.answer_content" :id="item.answer_email"></answer-tile>
+            <answer-tile :detail="item.answer_content" :id="item.answer_email" :like="item.like_count" :answer_index="item.answer_num"></answer-tile>
           </li>
         </ul>
       </div>
-      <textarea id="contents" v-model="message" placeholder="답변을 입력해 주세요"></textarea>
     </div>
-    <button @click = "insert" tag="button" id="reg" class="btn"><span>등록</span></button>
   </div>
 </template>
 
@@ -35,7 +33,7 @@
   import apiClient from './../js/ApiClient.js';
 
   export default {
-    name: "QuestionDetail",
+    name: "QuestionDetail_like",
     components: {
       Header,
       ListTile,
@@ -65,7 +63,6 @@
         }
       }
     }
-
   }
 
 </script>

@@ -60,23 +60,21 @@
                 immediate:true,
                 handler() {
                     let def = 1;
-                    let question_state = 0;
+                    let state0 = 0;
+                    let state1 = 1;
                     let vuecomp = this;
-                    apiClient.question_list(def = 1, question_state = 0, function (result, data) {
+                    apiClient.question_list(def = 1 , state0 , function (result, data) {
                         if (result) {
                             vuecomp.ing_question = data;
                             vuecomp.ing_question.length=6;
-                          vuecomp.$store.state.question_state = 0;
-                            console.log(ing_question);
                         } else {
                             alert(data);
                         }
                     });
-                    apiClient.question_list(def = 1, question_state = 1, function (result, data) {
+                    apiClient.question_list(def = 1, state1 , function (result, data) {
                         if (result) {
                             vuecomp.like_question = data;
                             vuecomp.like_question.length=2;
-                            console.log(question_state);
                         } else {
                             alert(data);
                         }
