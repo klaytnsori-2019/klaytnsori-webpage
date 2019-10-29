@@ -1,7 +1,7 @@
 <template>
-    <div id="login_page">
+  <div id="login_page">
         <div class="content_area">
-            <login-form/>
+          <login-form/>
         </div>
     </div>
 </template>
