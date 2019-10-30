@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Footer from "./component/common/Footer";
+  import Footer from "./component/common/Footer";
 
 export default {
   name: 'app',
@@ -18,6 +18,14 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  watch: {
+    addr: {
+      immediate: true,
+      handler() {
+        this.$router.push('/login');
+      }
+    }
+  }
 }
 </script>
 

@@ -47,6 +47,7 @@
             ListTile,
             ListTileLike
         },
+
         data () {
             return {
                 like_question : null,

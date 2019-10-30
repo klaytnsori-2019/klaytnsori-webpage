@@ -16,7 +16,6 @@
 
 <script>
     import apiClient from './../../js/ApiClient.js';
-
     export default {
         name: "login_form",
         methods: {

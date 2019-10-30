@@ -37,8 +37,18 @@ const router = new VueRouter({
       { path: '/like_answer', component: like_answer},
       { path: '/empty', component: empty},
       { path:'/empty2', component: empty2},
-      { path: '/login', component: LoginPage },
-        { path: '/main', component: MainPage },
+      { path: '/login', component: LoginPage, meta:{authRequired: true}},
+      { path: '/main', component: MainPage, meta:{authRequired: false},
+        beforeEnter:(function (to, Loginpage, next) {
+          if (to.matched.some(function(routeInfo) {
+            return routeInfo.meta.authRequired;
+          })){
+            console.log("login please!")
+          } else {
+            console.log("routing success : '" + to.path + "'");
+            next();
+          }
+        })},
         { path: '/sample', component: SamplePage},
         { path: '/question_list', component: QuestionList},
       {path: '/question_list_like', component: QuestionListLike},
@@ -59,5 +69,6 @@ const router = new VueRouter({
         { path: '/sign_up2', component:SignUp2}
         ]
 });
+
 
 export default router
